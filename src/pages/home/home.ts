@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
+
+import 'rxjs/add/operator/map';
+
+import { Drink } from '../../models/Drink';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +12,13 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  public Drink: Drink;
 
+  constructor(public navCtrl: NavController, public _http: Http) {
+    this._http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka')
+      .map(res => res.json())
+      .subscribe(data => {
+        this.Drink = new Drink(data.ingredients[0].strIngredient, data.ingredients[0].strDescription);
+      })
   }
-
 }
