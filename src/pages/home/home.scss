@@ -1,3 +1,28 @@
 page-home {
+  .background-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("../../assets/imgs/wallpaper.jpg");
+    background-size: cover;
+    color: #fff;
+    height: 100%;
+    padding: 2em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .general-input {
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: .5em 0;
+  }
+
+  .button-container > button {
+    width: 100%;
+  }
 
 }

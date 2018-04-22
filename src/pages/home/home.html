@@ -1,15 +1,36 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title><ion-icon name="menu" style="color: blue; cursor: pointer;" (click)="openMenu()"></ion-icon>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content style="padding: 2em;">
+  <div class="background-wrapper">
 
-<ion-content padding>
-  <h2>{{ Drink?.ingredientTitle }}</h2>
-  <p>{{ Drink?.ingredientDescription }}</p>
+    <div style="display:flex; flex-direction: row; align-items: center;">
+      <ion-icon name="ios-keypad" style="cursor: pointer; font-size: 2.5em;" (click)="openMenu()"></ion-icon>
+      <h2 style="margin:auto;">NeverEatAlone</h2>
+    </div>
+
+    <div *ngIf="login" style="display: flex; flex-direction: column; width:90%; margin: auto;">
+
+      <ion-input type="text" class="general-input" placeholder="Inserisci la tua username"></ion-input>
+      <ion-input type="password" class="general-input" placeholder="Inserisci la tua password"></ion-input>
+      <div class="button-container" style="display:flex; flex-direction: row; justify-content: center">
+        <button ion-button color="secondary">Login</button>
+        <button ion-button (click)="switchView()">Registrati</button>
+      </div>
+
+    </div>
+
+    <div *ngIf="!login" style="display: flex; flex-direction: column; width:90%; margin: auto;">
+
+      <ion-input type="email" class="general-input" placeholder="Inserisci la tua email"></ion-input>
+      <ion-input type="password" class="general-input" placeholder="Inserisci la tua password"></ion-input>
+      <ion-input type="password" class="general-input" placeholder="Conferma password"></ion-input>
+      <ion-input type="text" class="general-input" placeholder="Scegli uno username"></ion-input>
+      <div class="button-container" style="display:flex; flex-direction: row; justify-content: center">
+        <button ion-button color="secondary">Registrati</button>
+        <button ion-button (click)="switchView()">Login</button>
+      </div>
+
+    </div>
+  </div>
 </ion-content>
-
-
 
 <ion-menu [content]="content">
   <ion-header>

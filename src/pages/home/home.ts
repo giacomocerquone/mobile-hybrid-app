@@ -13,6 +13,11 @@ import { Drink } from '../../models/Drink';
 export class HomePage {
 
   public Drink: Drink;
+  public login: boolean = true;
+
+  public switchView() {
+    this.login = !this.login;
+  }
 
   constructor(public navCtrl: NavController, public _http: Http, public _menuController: MenuController) {
     this._http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka')
