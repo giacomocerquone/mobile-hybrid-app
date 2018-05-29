@@ -7,10 +7,10 @@ import 'rxjs/add/operator/map';
 import { Drink } from '../../models/Drink';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'LoginSignup',
+  templateUrl: 'LoginSignup.html'
 })
-export class HomePage {
+export class LoginSignup {
 
   public Drink: Drink;
   public login: boolean = true;
