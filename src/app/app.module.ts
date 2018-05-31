@@ -9,13 +9,16 @@ import { MyApp } from './app.component';
 import { LoginSignup } from '../pages/LoginSignup/LoginSignup';
 import { PeopleList } from '../pages/PeopleList/PeopleList';
 import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
+import { PersonItemListComponent } from '../pages/PeopleList/person-item-list/person-item-list';
+
 
 @NgModule({
   declarations: [
     MyApp,
     LoginSignup,
     PeopleList,
-    CercaPersonePage
+    CercaPersonePage,
+    PersonItemListComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
     MyApp,
     LoginSignup,
     PeopleList,
-    CercaPersonePage
+    CercaPersonePage,
+    PersonItemListComponent,
   ],
   providers: [
     StatusBar,
