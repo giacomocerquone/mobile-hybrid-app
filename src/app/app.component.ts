@@ -1,9 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import { Nav, NavController, Platform, MenuController } from 'ionic-angular';
+import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginSignup} from '../pages/LoginSignup/LoginSignup';
+import { LoginSignup } from '../pages/LoginSignup/LoginSignup';
 import { PeopleList } from "../pages/PeopleList/PeopleList";
 import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
 
@@ -13,7 +13,7 @@ import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
 export class MyApp {
 
     @ViewChild(Nav) nav: Nav;
-    rootPage:any = LoginSignup;
+    rootPage:any = PeopleList;
     pages: Array<{title: string, component: any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public _menuController: MenuController) {
