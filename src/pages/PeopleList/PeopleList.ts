@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import { Component} from '@angular/core';
+import {NavController, MenuController} from 'ionic-angular';
 import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
@@ -11,7 +11,12 @@ import { Drink } from '../../models/Drink';
     templateUrl: 'PeopleList.html'
 })
 export class PeopleList {
-    constructor(public _navCtrl: NavController) {
 
+    constructor(public _navCtrl: NavController, public _menuController: MenuController) {
+
+    }
+
+    openMenu() {
+        this._menuController.open();
     }
 }

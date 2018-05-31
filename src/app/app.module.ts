@@ -8,12 +8,14 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { LoginSignup } from '../pages/LoginSignup/LoginSignup';
 import { PeopleList } from '../pages/PeopleList/PeopleList';
+import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginSignup,
     PeopleList,
+    CercaPersonePage
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { PeopleList } from '../pages/PeopleList/PeopleList';
     MyApp,
     LoginSignup,
     PeopleList,
+    CercaPersonePage
   ],
   providers: [
     StatusBar,

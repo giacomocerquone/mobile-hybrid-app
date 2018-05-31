@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
-import 'rxjs/add/operator/map';
-
-import { Drink } from '../../models/Drink';
+import { PeopleList } from '../PeopleList/PeopleList';
 
 @Component({
   selector: 'LoginSignup',
@@ -12,22 +10,28 @@ import { Drink } from '../../models/Drink';
 })
 export class LoginSignup {
 
-  public Drink: Drink;
-  public login: boolean = true;
-
-  public switchView() {
-    this.login = !this.login;
-  }
+  public viewlogin: boolean = true;
 
   constructor(public navCtrl: NavController, public _http: Http, public _menuController: MenuController) {
-    this._http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka')
-      .map(res => res.json())
-      .subscribe(data => {
-        this.Drink = new Drink(data.ingredients[0].strIngredient, data.ingredients[0].strDescription);
-      })
+    this.unableMenu();
   }
 
-  openMenu() {
-    this._menuController.open();
+  unableMenu() {
+    this._menuController.enable(false, 'navigationDrawer');
   }
+
+  public switchView() {
+    this.viewlogin = !this.viewlogin;
+  }
+
+  login() {
+    this.navCtrl.push(PeopleList);
+    this._menuController.enable(true, 'navigationDrawer');
+  }
+
+  signup() {
+    this.navCtrl.push(PeopleList);
+    this._menuController.enable(true, 'navigationDrawer');
+  }
+  
 }
