@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
+import {
+    NavController,
+    MenuController,
+    IonicPage,
+} from 'ionic-angular';
 
-import { PeopleListPage } from '../people-list/people-list';
+// import { PeopleListPage } from '../people-list/people-list';
 
+@IonicPage()
 @Component({
   selector: 'page-login-signup',
   templateUrl: 'login-signup.html'
@@ -24,12 +29,12 @@ export class LoginSignupPage {
   }
 
   login() {
-    this.navCtrl.push(PeopleListPage);
+    this.navCtrl.push('PeopleListPage');
     this._menuController.enable(true, 'navigationDrawer');
   }
 
   signup() {
-    this.navCtrl.push(PeopleListPage);
+    this.navCtrl.push('PeopleListPage');
     this._menuController.enable(true, 'navigationDrawer');
   }
   
