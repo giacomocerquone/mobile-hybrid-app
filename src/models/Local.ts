@@ -1,6 +1,6 @@
 export class Local {
 
-  name: string = "";
-  address: string = "";
+  public address: string = '';
+  public name: string = '';
 
 }

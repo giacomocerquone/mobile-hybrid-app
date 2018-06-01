@@ -8,11 +8,11 @@ import { IonicPage, MenuController } from 'ionic-angular';
 })
 export class PeopleSearchPage {
 
-  constructor(public _menuController: MenuController) {
+  constructor(public menuController: MenuController) {
   }
-  
-  openMenu() {
-    this._menuController.open();
+
+  public openMenu() {
+    this.menuController.open();
   }
 
 }

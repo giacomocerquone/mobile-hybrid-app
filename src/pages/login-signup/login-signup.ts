@@ -1,41 +1,39 @@
 import { Component } from '@angular/core';
 import {
-    NavController,
-    MenuController,
-    IonicPage,
+  IonicPage,
+  MenuController,
+  NavController,
 } from 'ionic-angular';
-
-// import { PeopleListPage } from '../people-list/people-list';
 
 @IonicPage()
 @Component({
   selector: 'page-login-signup',
-  templateUrl: 'login-signup.html'
+  templateUrl: 'login-signup.html',
 })
 export class LoginSignupPage {
 
   public viewLogin: boolean = true;
 
-  constructor(public navCtrl: NavController, public _menuController: MenuController) {
+  constructor(public navCtrl: NavController, public menuController: MenuController) {
     this.unableMenu();
   }
 
-  unableMenu() {
-    this._menuController.enable(false, 'navigationDrawer');
+  public unableMenu() {
+    this.menuController.enable(false, 'navigationDrawer');
   }
 
   public switchView() {
     this.viewLogin = !this.viewLogin;
   }
 
-  login() {
+  public login() {
     this.navCtrl.push('PeopleListPage');
-    this._menuController.enable(true, 'navigationDrawer');
+    this.menuController.enable(true, 'navigationDrawer');
   }
 
-  signup() {
+  public signup() {
     this.navCtrl.push('PeopleListPage');
-    this._menuController.enable(true, 'navigationDrawer');
+    this.menuController.enable(true, 'navigationDrawer');
   }
-  
+
 }

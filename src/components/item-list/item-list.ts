@@ -1,15 +1,13 @@
-import {Component, Input} from '@angular/core';
-import { Person } from '../../models/Person';
+import { Component, Input } from '@angular/core';
 import { Local } from '../../models/Local';
+import { Person } from '../../models/Person';
 
 @Component({
-    selector: 'item-list',
-    templateUrl: 'item-list.html'
+  selector: 'item-list',
+  templateUrl: 'item-list.html',
 })
-export class ItemListComponent{
+export class ItemListComponent {
 
-    @Input() data: Person | Local;
-
-    constructor() {}
+  @Input() public data: Person | Local;
 
 }

@@ -1,7 +1,7 @@
 export class Person {
 
-  name: string = "";
-  surname: string = "";
-  imageProfile: string = "";
+  public name: string = '';
+  public surname: string = '';
+  public imageProfile: string = '';
 
 }

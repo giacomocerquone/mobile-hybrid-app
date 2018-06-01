@@ -1,16 +1,16 @@
 <div class="container">
-    <header>
-        <ion-icon name="ios-keypad" style="cursor: pointer; font-size: 2.5em;" (click)="openMenu()"></ion-icon>
-        <h3 style="margin-left: 1em;">Lista Persone</h3>
-    </header>
+  <header>
+    <ion-icon name="ios-keypad" style="cursor: pointer; font-size: 2.5em;" (click)="openMenu()"></ion-icon>
+    <h3 style="margin-left: 1em;">Lista Persone</h3>
+  </header>
 
-    <ion-searchbar (ionInput)="getItems($event)">
-        <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
-    </ion-searchbar>
-    <button ion-button color="light" item-end>
-        Ricerca Avanzata
-    </button>
-    <ion-list>
-        <item-list *ngFor="let person of peopleList" [data]="person"></item-list>
-    </ion-list>
+  <ion-searchbar (ionInput)="getItems($event)">
+    <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
+  </ion-searchbar>
+  <button ion-button color="light" item-end>
+    Ricerca Avanzata
+  </button>
+  <ion-list>
+    <item-list *ngFor="let person of peopleList" [data]="person"></item-list>
+  </ion-list>
 </div>
