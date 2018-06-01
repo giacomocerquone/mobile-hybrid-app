@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import { Person } from '../../models/Person';
+import { Local } from '../../models/Local';
 
 @Component({
     selector: 'item-list',
@@ -7,7 +8,7 @@ import { Person } from '../../models/Person';
 })
 export class ItemListComponent{
 
-    @Input() person: Person;
+    @Input() data: Person | Local;
 
     constructor() {}
 
