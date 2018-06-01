@@ -1,8 +1,5 @@
 import { Component} from '@angular/core';
 import { MenuController } from 'ionic-angular';
-import { Http } from '@angular/http';
-
-import 'rxjs/add/operator/map';
 
 import { Person } from '../../models/Person';
 
@@ -10,10 +7,10 @@ import { Person } from '../../models/Person';
 import { Persons } from "../../mock/persons";
 
 @Component({
-    selector: 'people-list',
-    templateUrl: 'PeopleList.html'
+    selector: 'page-people-list',
+    templateUrl: 'people-list.html'
 })
-export class PeopleList {
+export class PeopleListPage {
 
     peopleList: Array<Person> = Persons;
 

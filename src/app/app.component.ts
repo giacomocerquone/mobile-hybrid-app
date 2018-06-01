@@ -3,9 +3,9 @@ import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginSignup } from '../pages/LoginSignup/LoginSignup';
-import { PeopleList } from "../pages/PeopleList/PeopleList";
-import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
+import { LoginSignupPage } from '../pages/login-signup/login-signup';
+import { PeopleListPage } from "../pages/people-list/people-list";
+import { PeopleSearchPage } from '../pages/people-search/people-search';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +13,7 @@ import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
 export class MyApp {
 
     @ViewChild(Nav) nav: Nav;
-    rootPage:any = PeopleList;
+    rootPage:any = PeopleListPage;
     pages: Array<{title: string, component: any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public _menuController: MenuController) {
@@ -24,8 +24,8 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages= [
-      { title: 'People List', component: PeopleList },
-      { title: 'Cerca Persone', component: CercaPersonePage}
+      { title: 'People List', component: PeopleListPage },
+      { title: 'Cerca Persone', component: PeopleSearchPage}
     ]
   }
 
@@ -35,7 +35,7 @@ export class MyApp {
   }
 
   logout() {
-    this.nav.push(LoginSignup);
+    this.nav.push(LoginSignupPage);
   }
 
 }
