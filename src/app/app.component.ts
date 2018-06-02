@@ -24,10 +24,15 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    this.pages = [
-      { title: 'People List', component: 'PeopleListPage' },
-      { title: 'Cerca Persone', component: 'PeopleSearchPage' },
-    ];
+
+    this.pages= [
+      { title: 'People List', component: PeopleList},
+      { title: 'Cerca Persone', component: CercaPersonePage},
+      { title: 'Inviti', component: InvitationsPage},
+      { title: 'Locali', component: PeopleList/*Places*/},
+      { title: 'Modifica Profilo', component: PeopleList/*ModifyProfile*/},
+      { title: 'Invita amici a unirsi', component: InviteFriendsPage},
+    ]
   }
 
   public openPage(page) {
