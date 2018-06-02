@@ -25,14 +25,14 @@ export class MyApp {
       splashScreen.hide();
     });
 
-    this.pages= [
-      { title: 'People List', component: PeopleList},
-      { title: 'Cerca Persone', component: CercaPersonePage},
-      { title: 'Inviti', component: InvitationsPage},
-      { title: 'Locali', component: PeopleList/*Places*/},
-      { title: 'Modifica Profilo', component: PeopleList/*ModifyProfile*/},
-      { title: 'Invita amici a unirsi', component: InviteFriendsPage},
-    ]
+    this.pages = [
+      { title: 'People List', component: 'PeopleListPage' },
+      { title: 'Cerca Persone', component: 'PeopleSearchPage' },
+      { title: 'Inviti', component: 'InvitationsPage' },
+      { title: 'Locali', component: 'PeopleListPage' },
+      { title: 'Modifica Profilo', component: 'PeopleListPage' },
+      { title: 'Invita amici a unirsi', component: 'InviteFriendsPage' },
+    ];
   }
 
   public openPage(page) {

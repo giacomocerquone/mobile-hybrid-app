@@ -1,8 +1,13 @@
-<div class="container">
-  <header>
-      <ion-icon name="ios-keypad" style="cursor: pointer; font-size: 2.5em;" (click)="openMenu()"></ion-icon>
-      <h3 style="margin-left: 1em;">Ricerca Avanzata</h3>
-  </header>
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-keypad"></ion-icon>
+    </button>
+    <ion-title><h3>Ricerca Avanzata</h3></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="container">
   <form (ngSubmit)="logForm()">
     <ion-item>
       <ion-label>Nome:</ion-label>
@@ -35,9 +40,9 @@
       <ion-label>Interessi:</ion-label>
       <ion-textarea [(ngModel)]="toSearch.interests" name="interests"></ion-textarea>
     </ion-item>
-    <div class="searchButton">  
+    <div class="searchButton">
       <button ion-button type="submit" block>Cerca</button>
     </div>
   </form>
-    
-</div>
+
+</ion-content>

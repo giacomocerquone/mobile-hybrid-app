@@ -1,16 +1,5 @@
-page-cerca-persone {
-    
-    .container {
-        text-align: center;
-    }
-    header {
-        padding: 1em;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        border-bottom: #222222 1px solid;
-    }
+page-people-search {
+
     form {
         margin-top:1em;
         width:95.5%;
@@ -22,7 +11,7 @@ page-cerca-persone {
     }
     .singleSex {
         display: flex;
-        justify-content: space-around;        
+        justify-content: space-around;
         align-items: center;
         width: 20%;
         height: 100%;
@@ -37,7 +26,7 @@ page-cerca-persone {
     .interests {
         height:6em;
     }
-    .searchButton {    
+    .searchButton {
         display: flex;
         justify-content: center;
     }

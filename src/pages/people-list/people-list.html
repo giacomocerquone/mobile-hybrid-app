@@ -1,9 +1,13 @@
-<div class="container">
-  <header>
-    <ion-icon name="ios-keypad" style="cursor: pointer; font-size: 2.5em;" (click)="openMenu()"></ion-icon>
-    <h3 style="margin-left: 1em;">Lista Persone</h3>
-  </header>
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-keypad"></ion-icon>
+    </button>
+    <ion-title><h3>Lista Persone</h3></ion-title>
+  </ion-navbar>
+</ion-header>
 
+<ion-content class="container">
   <ion-searchbar (ionInput)="getItems($event)">
     <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
   </ion-searchbar>
@@ -13,4 +17,4 @@
   <ion-list>
     <item-list *ngFor="let person of peopleList" [data]="person"></item-list>
   </ion-list>
-</div>
+</ion-content>
