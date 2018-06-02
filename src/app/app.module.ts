@@ -10,6 +10,8 @@ import { LoginSignup } from '../pages/LoginSignup/LoginSignup';
 import { PeopleList } from '../pages/PeopleList/PeopleList';
 import { CercaPersonePage } from '../pages/cerca-persone/cerca-persone';
 import { PersonItemListComponent } from '../pages/PeopleList/person-item-list/person-item-list';
+import { InvitationsPage } from '../pages/invitations/invitations';
+import { InviteFriendsPage } from '../pages/invite-friends/invite-friends';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { PersonItemListComponent } from '../pages/PeopleList/person-item-list/pe
     PeopleList,
     CercaPersonePage,
     PersonItemListComponent,
+    InvitationsPage,
+    InviteFriendsPage,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,8 @@ import { PersonItemListComponent } from '../pages/PeopleList/person-item-list/pe
     PeopleList,
     CercaPersonePage,
     PersonItemListComponent,
+    InvitationsPage,
+    InviteFriendsPage,
   ],
   providers: [
     StatusBar,

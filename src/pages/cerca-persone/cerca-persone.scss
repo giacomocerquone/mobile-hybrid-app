@@ -1,3 +1,50 @@
 page-cerca-persone {
-
+    
+    .container {
+        text-align: center;
+    }
+    header {
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: #222222 1px solid;
+    }
+    form {
+        margin-top:1em;
+        width:95.5%;
+    }
+    .selectSex {
+        display: flex;
+        flex-direction: row;
+        height:3.29em;
+    }
+    .singleSex {
+        display: flex;
+        justify-content: space-around;        
+        align-items: center;
+        width: 20%;
+        height: 100%;
+        margin: 0 0 0 2.5%;
+    }
+    .femaleSex {
+        margin: 0 0 0 15%;
+    }
+    .singleSex ion-icon {
+        font-size:2em;
+    }
+    .interests {
+        height:6em;
+    }
+    .searchButton {    
+        display: flex;
+        justify-content: center;
+    }
+    .searchButton button {
+        height:3em;
+        width:60%;
+        margin: 10% 0 0 5%;
+        font-size:0.6cm;
+    }
 }
