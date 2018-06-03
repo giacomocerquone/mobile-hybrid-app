@@ -29,14 +29,14 @@ export class MyApp {
       { title: 'People List', component: 'PeopleListPage' },
       { title: 'Cerca Persone', component: 'PeopleSearchPage' },
       { title: 'Inviti', component: 'InvitationsPage' },
-      { title: 'Locali', component: 'PeopleListPage' },
-      { title: 'Modifica Profilo', component: 'PeopleListPage' },
+      { title: 'Locali', component: 'LocalsListPage' },
+      { title: 'Modifica Profilo', component: 'ProfilePage' },
       { title: 'Invita amici a unirsi', component: 'InviteFriendsPage' },
     ];
   }
 
   public openPage(page) {
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page);
     this.menuController.close();
   }
 
