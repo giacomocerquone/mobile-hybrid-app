@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { 
+  Component,
+  ViewChild,
+  ElementRef,
+ } from '@angular/core';
 
-/**
- * Generated class for the InviteFriendsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { 
+  IonicPage,
+  NavController,
+  NavParams,
+  MenuController,
+ } from 'ionic-angular';
+
+ import * as moment from 'moment';
 
 @IonicPage()
 @Component({
@@ -15,11 +20,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InviteFriendsPage {
 
+  @ViewChild('myInput') myInput: ElementRef;
+  minDate: string = moment().format('YYYY-MM-DD');
+  maxDate: string = moment().add(90,'days').format('YYYY-MM-DD');
+  minTime: string = moment().add(1,'hour').format('HH:mm');
+
+  //TODO: fissare orario minimo tot minuti più avanti e controllare che non sia passato
+
+  toSend = {
+    place: '',
+    time: this.minTime,
+    date: this.minDate,
+    description: '',
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InviteFriendsPage');
+  sendInvitation() {
+    console.log(this.toSend);
   }
 
 }
