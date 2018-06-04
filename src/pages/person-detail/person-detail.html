@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-keypad"></ion-icon>
+    </button>
+    <ion-title><h3>Il profilo di {{ person.name }} {{ person.surname }}</h3></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <img style="max-height: 14em; height: 100%; display: flex; margin: auto;" src="{{ person.avatar }}" />
+  <div class="divider"></div>
+  <form>
+    <p>Nome: {{ person.name }}</p>
+    <p>Cognome: {{ person.surname }}</p>
+    <p>Descrizione: {{ person.biography }}</p>
+    <p>Data di Nascita: </p>
+    <p>Sesso:</p>
+    <p>Vivo a:</p>
+    <p>Cibo preferito:</p>
+    <p>Interessi:</p>
+    <p></p>
+  </form>
+</ion-content>

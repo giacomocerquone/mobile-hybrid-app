@@ -15,6 +15,11 @@
     Ricerca Avanzata
   </button>
   <ion-list>
-    <item-list *ngFor="let person of peopleList" [data]="person"></item-list>
+    <item-list
+      *ngFor="let person of peopleList"
+      [data]="person"
+      [navigateTo]="'PersonDetailPage'"
+    >
+    </item-list>
   </ion-list>
 </ion-content>

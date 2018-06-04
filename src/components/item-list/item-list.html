@@ -1,4 +1,4 @@
-<ion-item>
+<button ion-item [navPush]="navigateTo" [navParams]="data">
   <ion-avatar item-start>
     <img src="{{ data.avatar }}">
   </ion-avatar>
@@ -8,4 +8,4 @@
     <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline"></ion-icon>
   </button>
   <!--<a class="dataName" [navPush]="pushPage">{{ data.name }}</a>-->
-</ion-item>
+</button>

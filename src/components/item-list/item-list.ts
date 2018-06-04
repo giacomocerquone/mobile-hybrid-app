@@ -9,5 +9,6 @@ import { Person } from '../../models/Person';
 export class ItemListComponent {
 
   @Input() public data: Person | Local;
+  @Input() public navigateTo: string;
 
 }
