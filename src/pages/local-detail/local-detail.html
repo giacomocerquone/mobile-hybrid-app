@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-keypad"></ion-icon>
+    </button>
+    <ion-title><h3>Info su: {{ local.name }}</h3></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <img style="max-height: 14em; height: 100%; display: flex; margin: auto;" src="{{ local.avatar }}" />
+  <div class="divider"></div>
+  <form>
+    <p>Nome: {{ local.name }}</p>
+    <p>Indirizzo: {{ local.address }}</p>
+  </form>
+</ion-content>

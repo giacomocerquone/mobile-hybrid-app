@@ -12,6 +12,11 @@
     <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
   </ion-searchbar>
   <ion-list>
-    <item-list *ngFor="let local of localsList" [data]="local"></item-list>
+    <item-list
+      *ngFor="let local of localsList"
+      [data]="local"
+      [navigateTo]="'LocalDetailPage'"
+    >
+    </item-list>
   </ion-list>
 </ion-content>
