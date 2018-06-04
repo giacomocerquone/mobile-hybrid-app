@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Info su: {{ local.name }}</h3></ion-title>
+    <ion-title><h3>Info sul locale: {{ local.name }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,8 +11,33 @@
 <ion-content padding>
   <img style="max-height: 14em; height: 100%; display: flex; margin: auto;" src="{{ local.avatar }}" />
   <div class="divider"></div>
-  <form>
-    <p>Nome: {{ local.name }}</p>
-    <p>Indirizzo: {{ local.address }}</p>
-  </form>
+  <header>
+    <div class="left">
+      <h2>{{ local.name }}</h2>
+      <p>Tipo di cucina: {{ local.cookingGenre }}</p>
+      <p>Rating: {{ local.rating }}</p>
+    </div>
+    <div>
+      <h5>Prezzo medio</h5>
+      <p>{{ local.price }}</p>
+    </div>
+  </header>
+  <main>
+    <h2>Descrizione</h2>
+    <p>
+      {{ local.description }}
+    </p>
+  </main>
+  <footer>
+    <div class="icons">
+      <ion-icon name="ios-pin"></ion-icon>
+      <ion-icon name="ios-call"></ion-icon>
+      <ion-icon name="md-mail-open"></ion-icon>
+    </div>
+    <div class="info">
+      <p>{{ local.location }}</p>
+      <p>{{ local.phoneNumber }}</p>
+      <p>{{ local.mail }}</p>
+    </div>
+  </footer>
 </ion-content>

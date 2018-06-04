@@ -14,5 +14,6 @@ import { persons } from '../../mock/persons';
 export class PeopleListPage {
 
   public peopleList: Person[] = persons;
+  public searchTerm: string = '';
 
 }

@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content class="container">
-  <ion-searchbar (ionInput)="getItems($event)">
+  <ion-searchbar [(ngModel)]="searchTerm">
     <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
   </ion-searchbar>
   <ion-list>
     <item-list
-      *ngFor="let local of localsList"
+      *ngFor="let local of localsList | filter: searchTerm"
       [data]="local"
       [navigateTo]="'LocalDetailPage'"
     >

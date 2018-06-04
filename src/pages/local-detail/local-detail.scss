@@ -4,4 +4,28 @@ page-local-detail {
     margin: 2em auto;
     width: 30%;
   }
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  main {
+    margin: 3em 0;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  footer > .icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    margin-right: 1em;
+  }
+  footer > .icons > ion-icon {
+    margin-top: .15em;
+  }
 }
