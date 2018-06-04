@@ -1,35 +1,35 @@
-import { Person } from '../models/Person';
+import { Local } from '../models/Local';
 
-export const persons: Person[] = [
+export const locals: Local[] = [
   {
+    address: 'Via Antica Arischia',
     avatar:
       'http://americanmuslimconsumer.com/2013/wp-content/uploads/2013/09/blank-user.jpg',
-    biography: 'Sono io',
-    name: 'Paolo',
-    surname: 'Della Penna',
+    description: 'Ottimi piatti',
+    name: 'Ernesto',
   },  {
+    address: 'Via Antica Arischia',
     avatar:
       'http://americanmuslimconsumer.com/2013/wp-content/uploads/2013/09/blank-user.jpg',
-    biography: 'Sei tu',
-    name: 'Paolo',
-    surname: 'Della Penna',
+    description: 'Piatti di merda',
+    name: 'La Fiamma',
   },  {
+    address: 'Via Antica Arischia',
     avatar:
       'http://americanmuslimconsumer.com/2013/wp-content/uploads/2013/09/blank-user.jpg',
-    biography: 'E\' egli',
-    name: 'Paolo',
-    surname: 'Della Penna',
+    description: 'Piatti perfetti',
+    name: 'Spapizar',
   },  {
+    address: 'Via Antica Arischia',
     avatar:
       'http://americanmuslimconsumer.com/2013/wp-content/uploads/2013/09/blank-user.jpg',
-    biography: 'Siamo noi',
-    name: 'Paolo',
-    surname: 'Della Penna',
+    description: 'Piatti sporchi',
+    name: 'La Botte',
   },  {
+    address: 'Via Antica Arischia',
     avatar:
       'http://americanmuslimconsumer.com/2013/wp-content/uploads/2013/09/blank-user.jpg',
-    biography: 'Sono loro',
-    name: 'Paolo',
-    surname: 'Della Penna',
+    description: 'Piatti e tamburi',
+    name: 'La cantina',
   },
 ];

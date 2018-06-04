@@ -26,11 +26,11 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'People List', component: 'PeopleListPage' },
+      { title: 'Persone', component: 'PeopleListPage' },
       { title: 'Cerca Persone', component: 'PeopleSearchPage' },
       { title: 'Inviti', component: 'InvitationsPage' },
       { title: 'Locali', component: 'LocalsListPage' },
-      { title: 'Modifica Profilo', component: 'ProfilePage' },
+      { title: 'Profilo', component: 'ProfilePage' },
       { title: 'Invita amici a unirsi', component: 'InviteFriendsPage' },
     ];
   }
