@@ -1,3 +1,20 @@
 page-invite-friends {
+    page-people-search {
 
+        form {
+            margin-top:1em;
+            width:95.5%;
+        }
+        .sendButton {
+            display: flex;
+            justify-content: center;
+        }
+        .sendButton button {
+            height:5em;
+            width:60%;
+            margin: 10% 0 0 5%;
+            font-size:0.6cm;
+        }
+    }
+    
 }
