@@ -1,9 +1,9 @@
 <ion-item>
   <ion-avatar item-start>
-    <img src="{{ data.imageProfile }}">
+    <img src="{{ data.avatar }}">
   </ion-avatar>
   <h2>{{ data.name }}</h2>
-  <p>Ugh. As if.</p>
+  <p>{{ data.biography || data.description }}</p>
   <button ion-button clear item-end>
     <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline"></ion-icon>
   </button>
