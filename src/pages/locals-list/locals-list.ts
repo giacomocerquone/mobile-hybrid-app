@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
+
+import { Local } from '../../models/Local';
+
+import { locals } from '../../mock/locals';
 
 /**
  * Generated class for the LocalsListPage page.
@@ -14,12 +18,5 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'locals-list.html',
 })
 export class LocalsListPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LocalsListPage');
-  }
-
+  public localsList: Local[] = locals;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, MenuController } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
 import { Person } from '../../models/Person';
 
@@ -15,9 +15,4 @@ export class PeopleListPage {
 
   public peopleList: Person[] = persons;
 
-  constructor(public menuController: MenuController) {}
-
-  public openMenu() {
-    this.menuController.open();
-  }
 }
