@@ -1,4 +1,4 @@
-<button ion-item [navPush]="navigateTo" [navParams]="data">
+<button ion-item [navPush]="navigateTo" [navParams]="data" *ngIf="!isInvite">
   <ion-avatar item-start>
     <img src="{{ data.avatar }}">
   </ion-avatar>
@@ -7,5 +7,24 @@
   <button ion-button clear item-end>
     <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline"></ion-icon>
   </button>
-  <!--<a class="dataName" [navPush]="pushPage">{{ data.name }}</a>-->
+</button>
+
+<button ion-item [navPush]="navigateTo" [navParams]="data" *ngIf="isInvite">
+  <ion-avatar item-start>
+    <img src="{{ data.from.avatar }}">
+  </ion-avatar>
+  <h2>Invito da: {{ data.from.name }}</h2>
+  <p>{{ data.date }} , {{ data.time }}</p>
+
+  <button ion-button clear item-end>
+    <!--TODO need to build appInviteStatus attribute directive -->
+    <div class="statusBox">
+      <span *ngIf="data.status === 'pending'">In Attesa</span>
+      <span *ngIf="data.status === 'rejected'"></span>
+      <span *ngIf="data.status === 'accepted'"></span>
+    </div>
+  </button>
+  <button ion-button clear item-end>
+    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline"></ion-icon>
+  </button>
 </button>

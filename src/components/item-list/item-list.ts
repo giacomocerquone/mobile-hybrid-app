@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Invite } from '../../models/Invite';
 import { Local } from '../../models/Local';
 import { Person } from '../../models/Person';
 
@@ -8,7 +9,8 @@ import { Person } from '../../models/Person';
 })
 export class ItemListComponent {
 
-  @Input() public data: Person | Local;
+  @Input() public data: Person | Local | Invite;
   @Input() public navigateTo: string;
+  @Input() public isInvite: string;
 
 }

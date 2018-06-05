@@ -28,7 +28,7 @@ export class MyApp {
     this.pages = [
       { title: 'Persone', component: 'PeopleListPage' },
       { title: 'Cerca Persone', component: 'PeopleSearchPage' },
-      { title: 'Inviti', component: 'InvitationsPage' },
+      { title: 'I tuoi Inviti', component: 'InvitesListPage' },
       { title: 'Locali', component: 'LocalsListPage' },
       { title: 'Profilo', component: 'ProfilePage' },
       { title: 'Invita amici a unirsi', component: 'InviteFriendsPage' },
