@@ -31,7 +31,7 @@ export class MyApp {
       { title: 'Inviti', component: 'InvitationsPage' },
       { title: 'Locali', component: 'LocalsListPage' },
       { title: 'Profilo', component: 'ProfilePage' },
-      { title: 'Invita amici a unirsi', component: 'InviteFriendsPage' },
+      { title: 'Invita amici a unirsi', component: 'JoinAppPage' },
     ];
   }
 
