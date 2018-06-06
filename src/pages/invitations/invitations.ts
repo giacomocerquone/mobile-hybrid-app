@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage,MenuController, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the InvitationsPage page.

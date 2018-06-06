@@ -1,12 +1,12 @@
-import { 
+import {
   Component,
  } from '@angular/core';
 
-import { 
+import {
   IonicPage,
+  MenuController,
   NavController,
   NavParams,
-  MenuController,
  } from 'ionic-angular';
 
 @IonicPage()
@@ -16,15 +16,15 @@ import {
 })
 export class JoinAppPage {
 
-  mailContent = {
+  public mailContent = {
     address: '',
     text: '',
-  }
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  sendMail() {
+  public sendMail() {
     console.log(this.mailContent);
   }
 
