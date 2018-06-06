@@ -1,20 +1,36 @@
 page-invite-friends {
-    page-people-search {
 
-        form {
-            margin-top:1em;
-            width:95.5%;
-        }
-        .sendButton {
-            display: flex;
-            justify-content: center;
-        }
-        .sendButton button {
-            height:5em;
-            width:60%;
-            margin: 10% 0 0 5%;
-            font-size:0.6cm;
-        }
+    .top {
+        display: flex;
+        flex-direction: row;
+        height: 6em;
+    }
+    .top ion-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .top span {
+        margin-top: 2.5em;
+    }
+
+    .top img {
+        height: 5em;
+        border-radius: 5%;
+        margin-bottom: .5em;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .sendButton button {
+        height: 3em;
+        width: 60%;
+        margin: 10% 0 0 20%;
+        font-size: 0.5cm;
     }
     
 }

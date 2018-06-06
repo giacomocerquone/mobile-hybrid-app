@@ -1,7 +1,5 @@
 import { 
   Component,
-  ViewChild,
-  ElementRef,
  } from '@angular/core';
 
 import { 
@@ -19,8 +17,7 @@ import {
   templateUrl: 'invite-friends.html',
 })
 export class InviteFriendsPage {
-
-  @ViewChild('myInput') myInput: ElementRef;
+  
   minDate: string = moment().format('YYYY-MM-DD');
   maxDate: string = moment().add(90,'days').format('YYYY-MM-DD');
   minTime: string = moment().add(1,'hour').format('HH:mm');
@@ -28,6 +25,7 @@ export class InviteFriendsPage {
   //TODO: fissare orario minimo tot minuti più avanti e controllare che non sia passato
 
   toSend = {
+    nomeUtente: 'Jena Plissken',
     place: '',
     time: this.minTime,
     date: this.minDate,
