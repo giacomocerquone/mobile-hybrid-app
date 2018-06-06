@@ -1,0 +1,19 @@
+page-join-app {
+
+    .sendButton button {
+        height: 3em;
+        width: 60%;
+        margin: 10% 0 0 20%;
+        font-size: 0.5cm;
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contentHead {
+        display: flex;
+        justify-content: space-around;
+        font-size: 8em;
+    }
+}

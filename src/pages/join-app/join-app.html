@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="ios-keypad"></ion-icon>
+      </button>
+      <ion-title><h3>Invita i tuoi amici</h3></ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <div class="contentHead"><ion-icon name="mail"></ion-icon></div>
+  <form (ngSubmit)="sendMail()">
+    <ion-item>
+      <ion-label>E-mail:</ion-label>
+      <ion-input type="text" placeholder="example@mail.com" [(ngModel)]="mailContent.address" name="address"></ion-input>
+    </ion-item>
+    <ion-item class="text">
+      <ion-textarea item-content rows="10" placeholder="Inserisci quì il testo della mail..." [(ngModel)]="mailContent.text" name="text"></ion-textarea>
+    </ion-item>
+    <div class="sendButton">
+      <button ion-button type="submit" block>Invia mail</button>
+    </div>
+  </form>
+</ion-content>
