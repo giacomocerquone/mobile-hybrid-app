@@ -8,10 +8,16 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-item class="top">
+    <ion-label>
+      <span>Invito a:<br><b>{{toSend.nomeUtente}}</b></span>
+      <img src="https://tinyurl.com/y9ec25re"/>
+    </ion-label>    
+  </ion-item>
   <form (ngSubmit)="sendInvitation()">
     <ion-item>
       <ion-label>Localiltà:</ion-label>
-      <ion-input type="text" [(ngModel)]="toSend.place" name="place" placeholder="{{msg}}"></ion-input>
+      <ion-input type="text" [(ngModel)]="toSend.place" name="place"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>Orario:</ion-label>
@@ -21,12 +27,12 @@
       <ion-label>Data:</ion-label>
       <ion-datetime displayFormat="DD/MM/YYYY" min={{minDate}} max="{{maxDate}}" placeholder={{minDate}} [(ngModel)]="date" name="date"></ion-datetime>
     </ion-item>
-    <ion-item style="display:flex;flex-direction:column;">
+    <ion-item class="description">
         <ion-label>Descrizione:</ion-label>
         <ion-textarea item-content rows="4" placeholder="Inserisci la tua descrizione..." [(ngModel)]="toSend.description" name="description"></ion-textarea>
     </ion-item>
     <div class="sendButton">
-      <button style="height:3em;width:60%;margin:10% 0 0 20%;font-size:0.5cm;" ion-button type="submit" block>Invia</button>
+      <button ion-button type="submit" block>Invia</button>
     </div>
   </form>
 </ion-content>
