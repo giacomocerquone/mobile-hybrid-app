@@ -8,8 +8,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { ApiInterceptorProvider } from '../providers/api-interceptor/api-interceptor';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-import { MyApp } from './app.component';
+import { InviteServiceProvider } from '../providers/invite-service/invite-service';
+import { LocalServiceProvider } from '../providers/local-service/local-service';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { MyApp } from './app.component';
 
 @NgModule({
   bootstrap: [IonicApp],
@@ -38,6 +40,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     },
     AuthServiceProvider,
     UserServiceProvider,
+    LocalServiceProvider,
+    InviteServiceProvider,
   ],
 })
 export class AppModule {}

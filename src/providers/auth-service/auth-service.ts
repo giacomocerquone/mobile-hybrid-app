@@ -4,6 +4,10 @@ import { Person } from '../../models/Person';
 
 @Injectable()
 export class AuthServiceProvider {
+  private token = null;
+  private ttl = null;
+  private userId = null;
+
   constructor(public http: HttpClient) {}
 
   public setUserInfo(token, ttl, userId) {
@@ -13,11 +17,11 @@ export class AuthServiceProvider {
   }
 
   public getToken() {
-    return localStorage.getItem('login-token');
+    return this.token || localStorage.getItem('login-token');
   }
 
   public getUserId() {
-    return this.isConnected() && localStorage.getItem('userId');
+    return this.userId || (this.isConnected() && localStorage.getItem('userId'));
   }
 
   public isConnected() {
