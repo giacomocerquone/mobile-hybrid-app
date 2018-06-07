@@ -9,7 +9,7 @@ import { MenuController, Nav, Platform } from 'ionic-angular';
 export class MyApp {
 
   @ViewChild(Nav) public nav: Nav;
-  public rootPage: any = 'PeopleListPage';
+  public rootPage: any = 'LoginSignupPage';
   public pages: Array<{ title: string, component: any }>;
 
   constructor(

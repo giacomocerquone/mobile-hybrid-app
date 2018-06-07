@@ -1,9 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import {
   IonicPage,
   MenuController,
   NavController,
 } from 'ionic-angular';
+
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -13,8 +16,19 @@ import {
 export class LoginSignupPage {
 
   public viewLogin: boolean = true;
+  public credentials: { email: string, password: string, username: string } = {
+    email: '',
+    password: '',
+    username: '',
+  };
+  public errors: string = '';
 
-  constructor(public navCtrl: NavController, public menuController: MenuController) {
+  constructor(
+    public navCtrl: NavController,
+    public menuController: MenuController,
+    private http: HttpClient,
+    private authService: AuthServiceProvider,
+  ) {
     this.unableMenu();
   }
 
@@ -27,13 +41,30 @@ export class LoginSignupPage {
   }
 
   public login() {
-    this.navCtrl.push('PeopleListPage');
-    this.menuController.enable(true, 'navigationDrawer');
+    return this.authService.login(this.credentials)
+      .subscribe(
+        (data) => {
+          this.authService.setToken(data.id, data.ttl);
+          this.navCtrl.setRoot('PeopleListPage');
+          this.menuController.enable(true, 'navigationDrawer');
+        },
+        (err) => {
+          this.errors = err.error.error.message;
+        });
   }
 
   public signup() {
-    this.navCtrl.push('PeopleListPage');
-    this.menuController.enable(true, 'navigationDrawer');
+    return this.authService.signUp(this.credentials)
+      .subscribe(
+        (data) => {
+          this.authService.setToken(data.id, data.ttl);
+          this.navCtrl.setRoot('PeopleListPage');
+          this.menuController.enable(true, 'navigationDrawer');
+        },
+        (err) => {
+          this.errors = err.error.error.message;
+        });
+
   }
 
 }

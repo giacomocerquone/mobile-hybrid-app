@@ -1,9 +1,13 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+import { ApiInterceptorProvider } from '../providers/api-interceptor/api-interceptor';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { MyApp } from './app.component';
 
 @NgModule({
@@ -17,6 +21,7 @@ import { MyApp } from './app.component';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
   ],
   providers: [
     StatusBar,
@@ -25,6 +30,12 @@ import { MyApp } from './app.component';
       provide: ErrorHandler,
       useClass: IonicErrorHandler,
     },
+    {
+      multi: true,
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptorProvider,
+    },
+    AuthServiceProvider,
   ],
 })
 export class AppModule {}
