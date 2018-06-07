@@ -9,6 +9,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ApiInterceptorProvider } from '../providers/api-interceptor/api-interceptor';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { MyApp } from './app.component';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   bootstrap: [IonicApp],
@@ -36,6 +37,7 @@ import { MyApp } from './app.component';
       useClass: ApiInterceptorProvider,
     },
     AuthServiceProvider,
+    UserServiceProvider,
   ],
 })
 export class AppModule {}

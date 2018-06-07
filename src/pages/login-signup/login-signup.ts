@@ -44,7 +44,7 @@ export class LoginSignupPage {
     return this.authService.login(this.credentials)
       .subscribe(
         (data) => {
-          this.authService.setToken(data.id, data.ttl);
+          this.authService.setUserInfo(data.id, data.ttl, data.userId);
           this.navCtrl.setRoot('PeopleListPage');
           this.menuController.enable(true, 'navigationDrawer');
         },
@@ -57,7 +57,7 @@ export class LoginSignupPage {
     return this.authService.signUp(this.credentials)
       .subscribe(
         (data) => {
-          this.authService.setToken(data.id, data.ttl);
+          this.authService.setUserInfo(data.id, null, data.userId);
           this.navCtrl.setRoot('PeopleListPage');
           this.menuController.enable(true, 'navigationDrawer');
         },

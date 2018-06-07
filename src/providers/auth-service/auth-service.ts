@@ -6,13 +6,20 @@ import { Person } from '../../models/Person';
 export class AuthServiceProvider {
   constructor(public http: HttpClient) {}
 
-  public setToken(token, ttl) {
+  public setUserInfo(token, ttl, userId) {
     return localStorage.setItem('login-token', token) &&
-      localStorage.setItem('login-token-ttl', ttl);
+      localStorage.setItem('login-token-ttl', ttl) &&
+      localStorage.setItem('userId', userId);
   }
+
   public getToken() {
     return localStorage.getItem('login-token');
   }
+
+  public getUserId() {
+    return this.isConnected() && localStorage.getItem('userId');
+  }
+
   public isConnected() {
     return !!this.getToken();
   }
@@ -21,8 +28,11 @@ export class AuthServiceProvider {
     return this.http.post<Person>('neaUsers/login', credentials);
   }
 
+  public logout() {
+    return localStorage.clear();
+  }
+
   public signUp(newUser) {
-    console.log(newUser)
     return this.http.post<Person>('neaUsers', newUser);
   }
 
