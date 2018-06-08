@@ -11,12 +11,12 @@ export class UserServiceProvider {
 
   public getProfile() {
     const userId = this.authService.getUserId();
-    return this.http.get<Person[]>('neaUsers/' + userId);
+    return this.http.get<Person>('neaUsers/' + userId);
   }
 
   public editProfile(editedProfile) {
     const userId = this.authService.getUserId();
-    return this.http.patch<Person[]>('neaUsers/' + userId, editedProfile);
+    return this.http.patch<Person>('neaUsers/' + userId, editedProfile);
   }
 
   public getPeople() {

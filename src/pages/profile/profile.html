@@ -11,7 +11,7 @@
 <ion-content padding>
   <img style="width: 100%;" src="https://fortunedotcom.files.wordpress.com/2017/03/jeff-bezos-amazon-premiere.jpg" />
   <div class="divider"></div>
-  <form (ngSubmit)="editProfile()" *ngIf="profile$ | async as toUpdate; else loading">
+  <form (ngSubmit)="editProfile()">
     <ion-item>
       <ion-label>Nome:</ion-label>
       <ion-input type="text" [(ngModel)]="toUpdate.name" name="name"></ion-input>
@@ -40,5 +40,9 @@
       <ion-label>Interessi:</ion-label>
       <ion-textarea rows="4" [(ngModel)]="toUpdate.interests" name="interests"></ion-textarea>
     </ion-item>
+    <button ion-button type="submit" block>Modifica Profilo</button>
+    {{ message }}
   </form>
+
+  <ion-spinner *ngIf="loadingData"></ion-spinner>
 </ion-content>
