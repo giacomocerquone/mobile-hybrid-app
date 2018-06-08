@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MenuController, Nav, Platform } from 'ionic-angular';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @Component({
   templateUrl: 'app.html',
@@ -9,7 +10,7 @@ import { MenuController, Nav, Platform } from 'ionic-angular';
 export class MyApp {
 
   @ViewChild(Nav) public nav: Nav;
-  public rootPage: any = 'LoginSignupPage';
+  public rootPage: any = '';
   public pages: Array<{ title: string, component: any }>;
 
   constructor(
@@ -17,6 +18,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     public menuController: MenuController,
+    private authService: AuthServiceProvider,
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -33,6 +35,8 @@ export class MyApp {
       { title: 'Profilo', component: 'ProfilePage' },
       { title: 'Invita amici a unirsi', component: 'JoinAppPage' },
     ];
+
+    this.rootPage = this.authService.isConnected() ? 'PeopleListPage' : 'LoginSignupPage';
   }
 
   public openPage(page) {
@@ -41,7 +45,9 @@ export class MyApp {
   }
 
   public logout() {
-    this.nav.push('LoginSignupPage');
+    if (this.authService.logout()) {
+      this.nav.setRoot('LoginSignupPage');
+    }
   }
 
 }

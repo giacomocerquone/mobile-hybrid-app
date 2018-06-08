@@ -7,16 +7,22 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { AuthServiceProvider } from '../auth-service/auth-service';
 
 @Injectable()
 export class ApiInterceptorProvider implements HttpInterceptor {
 
-  constructor(public http: HttpClient) {}
-
-  // TODO inject token everytime
+  constructor(public http: HttpClient, private authService: AuthServiceProvider) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const apiReq = req.clone({ url: `http://localhost:3000/api/${req.url}` });
+    const setHeaders = (this.authService.isConnected())
+    ? { Authorization: this.authService.getToken() }
+    : undefined;
+
+    const apiReq = req.clone({
+      setHeaders,
+      url: `http://localhost:3000/api/${req.url}`,
+    });
     return next.handle(apiReq);
   }
 

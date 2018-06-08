@@ -33,7 +33,8 @@ export class AuthServiceProvider {
   }
 
   public logout() {
-    return localStorage.clear();
+    localStorage.clear();
+    return !this.isConnected();
   }
 
   public signUp(newUser) {
