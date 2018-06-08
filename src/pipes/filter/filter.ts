@@ -7,13 +7,13 @@ import { Person } from '../../models/Person';
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  public transform(data: Person[] | Local[], searchTerm) {
+  public transform(data: Person[] | Local[] | Invite[], searchTerm) {
     return data.filter(el => {
-      if (this.isInvite(el)) {
-        return el.from.name.toLowerCase().includes(searchTerm.toLowerCase());
-      } else {
-        return el.name.toLowerCase().includes(searchTerm.toLowerCase());
-      }
+        if (this.isInvite(el)) {
+          return el.from.name.toLowerCase().includes(searchTerm.toLowerCase());
+        } else {
+          return el.name.toLowerCase().includes(searchTerm.toLowerCase());
+        }
     });
   }
 
