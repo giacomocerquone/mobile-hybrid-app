@@ -8,13 +8,13 @@ export class LocalServiceProvider {
   constructor(public http: HttpClient) {}
 
   public getLocals() {
-    return this.http.get<Person[]>('/Locals');
+    return this.http.get<Person[]>('Locals');
   }
 
   public searchLocal(searchParams) {
     const params = new HttpParams();
     Object.keys(searchParams).forEach(el => params.append(el, params[el]));
-    return this.http.get<Person[]>('/Locals/findOne', { params });
+    return this.http.get<Person[]>('Locals/findOne', { params });
   }
 
 }

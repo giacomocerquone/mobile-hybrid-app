@@ -10,18 +10,18 @@ export class InviteServiceProvider {
 
   public createInvite(newInvite) {
     const userId = this.authService.getUserId();
-    return this.http.post<Person[]>('/neaUsers/' + userId + '/invites', newInvite);
+    return this.http.post<Person[]>('neaUsers/' + userId + '/invites', newInvite);
   }
 
   public getInvites() {
     const userId = this.authService.getUserId();
-    return this.http.get<Person[]>('/neaUsers/' + userId + '/invites');
+    return this.http.get<Person[]>('neaUsers/' + userId + '/invites');
   }
 
   public editInvite(editedInvite) {
     const userId = this.authService.getUserId();
     const inviteId = editedInvite.id;
-    return this.http.patch<Person[]>('/neaUsers/' + userId + 'invites/' + inviteId, editedInvite);
+    return this.http.patch<Person[]>('neaUsers/' + userId + 'invites/' + inviteId, editedInvite);
   }
 
 }

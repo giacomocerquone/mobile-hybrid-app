@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 
+import { Observable } from 'rxjs/Observable';
 import { Person } from '../../models/Person';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
-// TODO Will be replaced by http calls
-import { persons } from '../../mock/persons';
+import 'rxjs/add/operator/map';
 
 @IonicPage()
 @Component({
@@ -13,7 +14,9 @@ import { persons } from '../../mock/persons';
 })
 export class PeopleListPage {
 
-  public peopleList: Person[] = persons;
   public searchTerm: string = '';
+  public people$: Observable<Person[]> = this.userService.getPeople();
+
+  constructor(private userService: UserServiceProvider) {}
 
 }
