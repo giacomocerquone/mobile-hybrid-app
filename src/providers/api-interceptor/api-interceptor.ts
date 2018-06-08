@@ -18,7 +18,7 @@ export class ApiInterceptorProvider implements HttpInterceptor {
     const apiReq = req.clone({
       setHeaders: this.authService.isConnected()
         ? { Authorization: this.authService.getToken() }
-        : null,
+        : {},
       url: `http://localhost:3000/api/${req.url}`,
     });
     return next.handle(apiReq);

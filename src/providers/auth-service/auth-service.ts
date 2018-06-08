@@ -11,9 +11,15 @@ export class AuthServiceProvider {
   constructor(public http: HttpClient) {}
 
   public setUserInfo(token, ttl, userId) {
-    return localStorage.setItem('login-token', token) &&
-      localStorage.setItem('login-token-ttl', ttl) &&
-      localStorage.setItem('userId', userId);
+    localStorage.setItem('login-token', token)
+    localStorage.setItem('login-token-ttl', ttl)
+    localStorage.setItem('userId', userId);
+
+    this.token = token;
+    this.ttl = ttl;
+    this.userId = userId
+
+      return true
   }
 
   public getToken() {

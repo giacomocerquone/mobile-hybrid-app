@@ -11,34 +11,34 @@
 <ion-content padding>
   <img style="width: 100%;" src="https://fortunedotcom.files.wordpress.com/2017/03/jeff-bezos-amazon-premiere.jpg" />
   <div class="divider"></div>
-  <form>
+  <form (ngSubmit)="editProfile()" *ngIf="profile$ | async as toUpdate; else loading">
     <ion-item>
       <ion-label>Nome:</ion-label>
-      <ion-input type="text" name="name"></ion-input>
+      <ion-input type="text" [(ngModel)]="toUpdate.name" name="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Cognome:</ion-label>
-      <ion-input type="text" name="name"></ion-input>
+      <ion-input type="text" [(ngModel)]="toUpdate.surname" name="surname"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Data di Nascita:</ion-label>
-      <ion-input type="text" name="name"></ion-input>
+      <ion-input type="text" [(ngModel)]="toUpdate.birthday" name="birthday"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Sesso:</ion-label>
-      <ion-input type="text" name="name"></ion-input>
+      <ion-input type="text" [(ngModel)]="toUpdate.sex" name="sex"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Vivo a:</ion-label>
-      <ion-input type="text" name="name"></ion-input>
+      <ion-input type="text" [(ngModel)]="toUpdate.city" name="city"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Cibo preferito:</ion-label>
-      <ion-input type="text" name="name"></ion-input>
+      <ion-input type="text" [(ngModel)]="toUpdate.favFood" name="favFood"></ion-input>
     </ion-item>
     <ion-item style="height: 6em;">
       <ion-label>Interessi:</ion-label>
-      <ion-textarea rows="4" name="interests"></ion-textarea>
+      <ion-textarea rows="4" [(ngModel)]="toUpdate.interests" name="interests"></ion-textarea>
     </ion-item>
   </form>
 </ion-content>

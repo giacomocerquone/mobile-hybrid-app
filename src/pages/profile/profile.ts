@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Person } from '../../models/Person';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,11 +18,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public message: string;
+  public profile$: Observable<any> = this.userService.getProfile();
+
+  public toUpdate = {
+    name: '',
+    surname: '',
+    bithday: '',
+    sex: '',
+    city: '',
+    favFood: '',
+    interests: '',
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserServiceProvider) {
+
+  }
+
+  editProfile() {
+    this.userService.editProfile(this.toUpdate)
+      .subscribe(() => {
+        this.message = 'Profilo aggiornato con successo';
+      },
+      () => {
+        this.message = 'Si è verificato un errore';
+      });
   }
 
 }

@@ -12,11 +12,18 @@ import 'rxjs/add/operator/map';
   selector: 'page-people-list',
   templateUrl: 'people-list.html',
 })
+
 export class PeopleListPage {
 
   public searchTerm: string = '';
   public people$: Observable<Person[]> = this.userService.getPeople();
 
-  constructor(private userService: UserServiceProvider) {}
+  constructor(private userService: UserServiceProvider) {
+    
+    this.people$.subscribe(data => {
+      console.log(data);
+    });
+
+  }
 
 }
