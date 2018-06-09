@@ -19,8 +19,7 @@ export class JoinAppPage {
   public mailContent = {
     address: '',
     title: 'Unisciti alla community di Never Eat Alone',
-    text: `
-Ciao, ti voglio invitare a provare questa fantastica applicazione che ho appena scoperto.
+    text: `Ciao, ti voglio invitare a provare questa fantastica applicazione che ho appena scoperto.
 
 Il suo nome è Never Eat Alone e con essa potrai mangiare insieme a nuove persone
 che non conosci, nel tuo tempo libero.
