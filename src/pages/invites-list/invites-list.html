@@ -39,4 +39,15 @@
     >
     </item-list>
   </ion-list>
+
+  <button ion-button clear item-end>
+    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline" [navPush]="'InviteFriendsPage'">Invita Persona</ion-icon>
+  </button>
+  <button ion-button clear item-end>
+    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline" [navPush]="'SeeInvitePage'" [navParams]="{isInvite: false}">Inviti Inviati</ion-icon>
+  </button>
+  <button ion-button clear item-end>
+    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline" [navPush]="'SeeInvitePage'" [navParams]="{isInvite: true}">Inviti Ricevuti</ion-icon>
+  </button>
+
 </ion-content>

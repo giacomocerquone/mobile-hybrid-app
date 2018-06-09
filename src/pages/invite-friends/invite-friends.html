@@ -11,7 +11,7 @@
   <ion-item class="top">
     <ion-label>
       <span>Invito a:<br><b>{{person.name}}</b></span>
-      <img src="{{ this.person.avatar || '../assets/imgs/user.png' }}"/>
+      <img src="{{ person.avatar || '../assets/imgs/user.png' }}"/>
     </ion-label>
   </ion-item>
   <form (ngSubmit)="sendInvitation()">

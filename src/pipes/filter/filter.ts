@@ -17,7 +17,7 @@ export class FilterPipe implements PipeTransform {
   // type guard since typescript 1.6
 
   private isInvite(invite: Invite): invite is Invite {
-    return 'from' in invite;
+    return 'userReceivedId' in invite;
   }
 
 }

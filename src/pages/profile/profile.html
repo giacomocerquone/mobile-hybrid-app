@@ -40,8 +40,9 @@
       <ion-label>Interessi:</ion-label>
       <ion-textarea rows="4" [(ngModel)]="toUpdate.interests" name="interests"></ion-textarea>
     </ion-item>
-    <button ion-button type="submit" class="sendButton" block>Modifica Profilo</button>
+
+    <ion-spinner *ngIf="loadingData" style="display: block; margin: 1em auto; width: 3em;"></ion-spinner>
+    <button ion-button *ngIf="!loadingData" type="submit" class="sendButton" block>Modifica Profilo</button>
   </form>
 
-  <ion-spinner *ngIf="loadingData"></ion-spinner>
 </ion-content>

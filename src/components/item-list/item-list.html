@@ -11,9 +11,9 @@
 
 <button ion-item [navPush]="navigateTo" [navParams]="data" *ngIf="isInvite">
   <ion-avatar item-start>
-    <img src="{{ data.from.avatar }}">
+    <img src="{{ data.userIdAvatar || '../../assets/imgs/user.png' }}">
   </ion-avatar>
-  <h2>Invito da: {{ data.from.name }}</h2>
+  <h2>Invito da: {{ data.userId }}</h2>
   <p>{{ data.date }} , {{ data.time }}</p>
 
   <button ion-button clear item-end>
