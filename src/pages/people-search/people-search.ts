@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {
-  AlertController,
+  ToastController,
   IonicPage,
   MenuController, NavController,
 } from 'ionic-angular';
-import {UserServiceProvider} from "../../providers/user-service/user-service";
-import {take} from "rxjs/operators";
+import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { take } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -28,11 +28,11 @@ export class PeopleSearchPage {
     public menuController: MenuController,
     private userService: UserServiceProvider,
     private navCtrl: NavController,
-    private alertCtrl: AlertController) {}
+    private toastCtrl: ToastController) {}
 
   public updateMaleSex() {
     if (this.toSearch.female) this.toSearch.female = false;
-    console.log(this.toSearch)
+    console.log(this.toSearch);
   }
   public updateFemaleSex() {
     if (this.toSearch.male) this.toSearch.male = false;
@@ -42,11 +42,10 @@ export class PeopleSearchPage {
     this.userService.searchPeople(this.toSearch)
       .pipe(take(1))
       .subscribe((data) => {
-        console.log(data)
+        console.log(data);
         this.navCtrl.push('PeopleListResultPage', data);
-      }, () => {
-        const failure = this.alertFactory(
-          'Errore',
+      },         () => {
+        const failure = this.toastFactory(
           'Ci sono stati errori nell\'invio del invito.',
         );
         failure.present();
@@ -57,11 +56,11 @@ export class PeopleSearchPage {
     this.menuController.open();
   }
 
-  private alertFactory(title, message) {
-    return this.alertCtrl.create({
-      title,
-      buttons: ['OK'],
-      subTitle: message,
+  private toastFactory(message) {
+    return this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position: 'bottom',
     });
   }
 

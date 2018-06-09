@@ -3,7 +3,7 @@ import {
  } from '@angular/core';
 
 import {
-  AlertController,
+  ToastController,
   IonicPage,
   NavController,
   NavParams,
@@ -43,7 +43,7 @@ export class InviteFriendsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private inviteService: InviteServiceProvider,
-    private alertCtrl: AlertController,
+    private toastCtrl: ToastController,
   ) {}
 
   public sendInvitation() {
@@ -51,25 +51,23 @@ export class InviteFriendsPage {
     this.inviteService.createInvite(this.toSend)
       .pipe(take(1))
       .subscribe(() => {
-        const success = this.alertFactory(
-          'Inviato',
+        const success = this.toastFactory(
           'L\'invito è stato inviato.',
         );
         success.present();
       },         () => {
-        const failure = this.alertFactory(
-          'Errore',
+        const failure = this.toastFactory(
           'Ci sono stati errori nell\'invio del invito.',
         );
         failure.present();
       });
   }
 
-  private alertFactory(title, message) {
-    return this.alertCtrl.create({
-      title,
-      buttons: ['OK'],
-      subTitle: message,
+  private toastFactory(message) {
+    return this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position: 'bottom',
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ToastController, IonicPage, NavController, NavParams, Toast} from 'ionic-angular';
 import { Person } from '../../models/Person';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 
@@ -34,7 +34,7 @@ export class ProfilePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private userService: UserServiceProvider,
-    private alertCtrl: AlertController,
+    private toastCtrl: ToastController,
   ) {}
 
   public ionViewDidLoad() {
@@ -52,25 +52,23 @@ export class ProfilePage {
     this.userService.editProfile(this.toUpdate)
       .pipe(take(1))
       .subscribe(() => {
-        const success = this.alertFactory(
-          'Aggiornato',
+        const success = this.toastFactory(
           'Il tuo profilo è stato aggiornato con successo',
         );
         success.present();
       },         () => {
-        const failure = this.alertFactory(
-          'Errore',
+        const failure = this.toastFactory(
           'Ci sono stati errori nell\'aggiornamento del tuo profilo',
         );
         failure.present();
       });
   }
 
-  private alertFactory(title, message) {
-    return this.alertCtrl.create({
-      title,
-      buttons: ['OK'],
-      subTitle: message,
+  private toastFactory(message) {
+    return this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position: 'bottom',
     });
   }
 }
