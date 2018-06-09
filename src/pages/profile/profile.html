@@ -9,7 +9,7 @@
 
 
 <ion-content padding>
-  <img style="width: 100%;" src="https://fortunedotcom.files.wordpress.com/2017/03/jeff-bezos-amazon-premiere.jpg" />
+  <img style="max-height: 14em; height: 100%; display: flex; margin: auto;" src="{{ toUpdate.avatar || '../assets/imgs/user.png' }}" />
   <div class="divider"></div>
   <form (ngSubmit)="editProfile()">
     <ion-item>
@@ -22,7 +22,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Data di Nascita:</ion-label>
-      <ion-input type="text" [(ngModel)]="toUpdate.birthday" name="birthday"></ion-input>
+      <ion-datetime displayFormat="DD/MM/YYYY" min={{minDate}} max="{{maxDate}}" placeholder={{minDate}} [(ngModel)]="date" name="date"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Sesso:</ion-label>
@@ -40,8 +40,7 @@
       <ion-label>Interessi:</ion-label>
       <ion-textarea rows="4" [(ngModel)]="toUpdate.interests" name="interests"></ion-textarea>
     </ion-item>
-    <button ion-button type="submit" block>Modifica Profilo</button>
-    {{ message }}
+    <button ion-button type="submit" class="sendButton" block>Modifica Profilo</button>
   </form>
 
   <ion-spinner *ngIf="loadingData"></ion-spinner>

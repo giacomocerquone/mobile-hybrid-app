@@ -3,29 +3,29 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Invita</h3></ion-title>
+    <ion-title><h3>Invita {{ person.name }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-item class="top">
     <ion-label>
-      <span>Invito a:<br><b>{{toSend.nomeUtente}}</b></span>
-      <img src="https://tinyurl.com/y9ec25re"/>
-    </ion-label>    
+      <span>Invito a:<br><b>{{person.name}}</b></span>
+      <img src="{{ this.person.avatar || '../assets/imgs/user.png' }}"/>
+    </ion-label>
   </ion-item>
   <form (ngSubmit)="sendInvitation()">
     <ion-item>
       <ion-label>Localiltà:</ion-label>
-      <ion-input type="text" [(ngModel)]="toSend.place" name="place"></ion-input>
+      <ion-input type="text" [(ngModel)]="toSend.location" name="place"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>Orario:</ion-label>
-        <ion-datetime displayFormat="HH:mm" min={{minTime}} placeholder={{minTime}} [(ngModel)]="time" name="time"></ion-datetime>
+        <ion-datetime displayFormat="HH:mm" min={{minTime}} placeholder={{minTime}} [(ngModel)]="toSend.time" name="time"></ion-datetime>
       </ion-item>
     <ion-item>
       <ion-label>Data:</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" min={{minDate}} max="{{maxDate}}" placeholder={{minDate}} [(ngModel)]="date" name="date"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" min={{minDate}} max="{{maxDate}}" placeholder={{minDate}} [(ngModel)]="toSend.date" name="date"></ion-datetime>
     </ion-item>
     <ion-item class="description">
         <ion-label>Descrizione:</ion-label>

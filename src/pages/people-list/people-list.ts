@@ -18,12 +18,6 @@ export class PeopleListPage {
   public searchTerm: string = '';
   public people$: Observable<Person[]> = this.userService.getPeople();
 
-  constructor(private userService: UserServiceProvider) {
-    
-    this.people$.subscribe(data => {
-      console.log(data);
-    });
-
-  }
+  constructor(private userService: UserServiceProvider) {}
 
 }

@@ -16,14 +16,8 @@ import { Person } from '../../models/Person';
 })
 export class PersonDetailPage {
 
-  public person: Person;
+  public person: Person = this.navParams.data;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.person = this.navParams.data;
-  }
-
-  public ionViewDidLoad() {
-    console.log('ionViewDidLoad PersonDetailPage');
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
 }

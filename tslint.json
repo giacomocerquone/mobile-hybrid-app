@@ -1,2 +1,15 @@
 {
+  "extends": [
+    "tslint:latest",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "no-duplicate-variable": true,
+    "no-unused-variable": true,
+    "prefer-array-literal": false,
+    "no-submodule-imports": false
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
 }

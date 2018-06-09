@@ -11,10 +11,11 @@
   <ion-searchbar [(ngModel)]="searchTerm">
     <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
   </ion-searchbar>
-  <button ion-button color="light" item-end>
+  <button ion-button color="light" item-end [navPush]="'PeopleSearchPage'">
     Ricerca Avanzata
   </button>
   <ion-list>
+
     <div *ngIf="people$ | async as people; else loading">
         <item-list
           *ngFor="let person of people || [] | filter: searchTerm"
@@ -22,11 +23,9 @@
           [navigateTo]="'PersonDetailPage'"
         >
         </item-list>
-
     </div>
-
     <ng-template #loading>
-      <ion-spinner></ion-spinner>
+      <ion-spinner style="margin-top: 3em;"></ion-spinner>
     </ng-template>
 
   </ion-list>

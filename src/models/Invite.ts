@@ -1,8 +1,7 @@
-import { Person } from './Person';
-
 export class Invite {
 
-  public from: Person;
+  public userId: string;
+  public userReceivedId: string;
   public date: string = '';
   public time: string = '';
   public description: string = '';

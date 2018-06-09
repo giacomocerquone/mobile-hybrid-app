@@ -3,13 +3,17 @@ import {
  } from '@angular/core';
 
 import {
+  AlertController,
   IonicPage,
-  MenuController,
   NavController,
   NavParams,
- } from 'ionic-angular';
+} from 'ionic-angular';
 
 import * as moment from 'moment';
+import { take } from 'rxjs/operators';
+import { Invite } from '../../models/Invite';
+import { Person } from '../../models/Person';
+import { InviteServiceProvider } from '../../providers/invite-service/invite-service';
 
 @IonicPage()
 @Component({
@@ -24,19 +28,49 @@ export class InviteFriendsPage {
 
   // TODO: fissare orario minimo tot minuti più avanti e controllare che non sia passato
 
-  public toSend = {
-    nomeUtente: 'Jena Plissken',
-    place: '',
-    time: this.minTime,
-    date: this.minDate,
+  public person: Person = this.navParams.data;
+  public toSend: Invite = {
+    userId: '',
+    userReceivedId: this.person.userId,
+    date: '',
+    time: '',
     description: '',
+    location: '',
+    status: 'pending',
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private inviteService: InviteServiceProvider,
+    private alertCtrl: AlertController,
+  ) {}
 
   public sendInvitation() {
     console.log(this.toSend);
+    this.inviteService.createInvite(this.toSend)
+      .pipe(take(1))
+      .subscribe(() => {
+        const success = this.alertFactory(
+          'Inviato',
+          'L\'invito è stato inviato.',
+        );
+        success.present();
+      },         () => {
+        const failure = this.alertFactory(
+          'Errore',
+          'Ci sono stati errori nell\'invio del invito.',
+        );
+        failure.present();
+      });
+  }
+
+  private alertFactory(title, message) {
+    return this.alertCtrl.create({
+      title,
+      buttons: ['OK'],
+      subTitle: message,
+    });
   }
 
 }

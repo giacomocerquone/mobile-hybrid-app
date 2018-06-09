@@ -1,17 +1,10 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {Person} from '../../models/Person';
-import {UserServiceProvider} from '../../providers/user-service/user-service';
+import { Component } from '@angular/core';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Person } from '../../models/Person';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
-import {Observable} from 'rxjs/Observable';
-import {take} from 'rxjs/operators';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import moment from 'moment';
+import { take } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -19,8 +12,6 @@ import {take} from 'rxjs/operators';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-
-  public message: string;
   public loadingData: boolean = true;
   public toUpdate: Person = {
     userId: '',
@@ -31,34 +22,52 @@ export class ProfilePage {
     city: '',
     favFood: '',
     interests: '',
+    avatar: '',
   };
+  public minDate: string = moment().format('YYYY-MM-DD');
+  public maxDate: string = moment().add(90, 'days').format('YYYY-MM-DD');
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserServiceProvider) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private userService: UserServiceProvider,
+    private alertCtrl: AlertController,
+  ) {}
 
-  ionViewDidLoad() {
+  public ionViewDidLoad() {
     this.userService.getProfile()
       .pipe(take(1))
       .subscribe((data) => {
-          this.toUpdate = data;
-        },
-        () => {
-          this.message = 'Si è verificato un errore';
-        },
-        () => {
-          this.loadingData = false;
-        })
+        this.toUpdate = data;
+      },         () => {
+      },         () => {
+        this.loadingData = false;
+      });
   }
 
-  editProfile() {
+  public editProfile() {
     this.userService.editProfile(this.toUpdate)
       .pipe(take(1))
       .subscribe(() => {
-          this.message = 'Profilo aggiornato con successo';
-        },
-        () => {
-          this.message = 'Si è verificato un errore';
-        });
+        const success = this.alertFactory(
+          'Aggiornato',
+          'Il tuo profilo è stato aggiornato con successo',
+        );
+        success.present();
+      },         () => {
+        const failure = this.alertFactory(
+          'Errore',
+          'Ci sono stati errori nell\'aggiornamento del tuo profilo',
+        );
+        failure.present();
+      });
   }
 
+  private alertFactory(title, message) {
+    return this.alertCtrl.create({
+      title,
+      buttons: ['OK'],
+      subTitle: message,
+    });
+  }
 }
