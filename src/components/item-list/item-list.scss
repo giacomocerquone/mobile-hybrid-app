@@ -1,6 +1,26 @@
 item-list {
-  .statusBox {
-    width: 3em;
-    height: 1.5em;
+  .sent {
+    background-color: rgba(141, 141, 141, 0.253);
+    border-top: 1px solid #dedede;
+    margin-bottom: 1%;
+  }
+  .sent span {
+    color: black;
+  }
+  .sent .statusBox ion-icon {
+    font-size: 2em;
+    padding-right: 1em;
+  }
+  .sent ion-icon {
+    font-size: 3em;
+    color:rgba(0, 132, 255, 0.836);
+  }
+  .received {
+    background-color: rgba(0, 255, 64, 0.253);
+    border-top: 1px solid #dedede;
+    margin-bottom: 1%;
+  }
+  .received ion-icon {
+    font-size: 3em;
   }
 }

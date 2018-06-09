@@ -31,6 +31,7 @@ export class InviteFriendsPage {
   public person: Person = this.navParams.data;
   public toSend: Invite = {
     userId: '',
+    userIdAvatar: '',
     userReceivedId: this.person.userId,
     date: '',
     time: '',

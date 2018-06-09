@@ -1,22 +1,3 @@
-<!--<ion-header>-->
-  <!--<ion-navbar>-->
-    <!--<button ion-button menuToggle>-->
-      <!--<ion-icon name="ios-keypad"></ion-icon>-->
-    <!--</button>-->
-    <!--<ion-title><h3>Invita</h3></ion-title>-->
-  <!--</ion-navbar>-->
-<!--</ion-header>-->
-
-
-<!--<ion-content padding>-->
-
-    <!--<button ion-button clear item-end>-->
-        <!--<ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline" [navPush]="'InviteFriendsPage'">Invita Persona</ion-icon>-->
-      <!--</button>-->
-
-<!--</ion-content>-->
-
-
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -27,27 +8,19 @@
 </ion-header>
 
 <ion-content class="container">
+ 
   <ion-searchbar [(ngModel)]="searchTerm">
     <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
   </ion-searchbar>
+  
   <ion-list>
     <item-list
       *ngFor="let invite of invitesList | filter: searchTerm"
       [data]="invite"
       [navigateTo]="'InviteDetailPage'"
-      [isInvite]="true"
+      [isInvite]="isInvited(invite)"
     >
     </item-list>
   </ion-list>
-
-  <button ion-button clear item-end>
-    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline" [navPush]="'InviteFriendsPage'">Invita Persona</ion-icon>
-  </button>
-  <button ion-button clear item-end>
-    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline" [navPush]="'SeeInvitePage'" [navParams]="{isInvite: false}">Inviti Inviati</ion-icon>
-  </button>
-  <button ion-button clear item-end>
-    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline" [navPush]="'SeeInvitePage'" [navParams]="{isInvite: true}">Inviti Ricevuti</ion-icon>
-  </button>
 
 </ion-content>

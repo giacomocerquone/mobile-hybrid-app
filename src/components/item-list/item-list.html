@@ -1,15 +1,27 @@
-<button ion-item [navPush]="navigateTo" [navParams]="data" *ngIf="!isInvite">
+<a class="sent" ion-item [navPush]="navigateTo" [navParams]="dataAndIsInvite"  *ngIf="!isInvite">  
   <ion-avatar item-start>
-    <img src="{{ data.avatar || '../../assets/imgs/user.png' }}" style="max-height: 14em; height: 100%; display: flex; margin: auto;">
+    <img src="{{ data.avatar || '../../assets/imgs/user.png' }}">
   </ion-avatar>
-  <h2>{{ data.name }}</h2>
-  <p>{{ data.biography || data.description }}</p>
-  <button ion-button clear item-end>
-    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline"></ion-icon>
-  </button>
-</button>
+  <span>
+    <h2>Invito a:{{ data.userReceivedId }}</h2>
+    <p>{{ data.date }} , {{ data.time }}</p>  
+  </span>
 
-<button ion-item [navPush]="navigateTo" [navParams]="data" *ngIf="isInvite">
+  <button ion-button clear item-content>
+      <!--TODO need to build appInviteStatus attribute directive -->
+      <div class="statusBox">
+        <ion-icon *ngIf="data.status === 'pending'" style="color:grey;" name="md-help"></ion-icon>
+        <ion-icon *ngIf="data.status === 'rejected'" style="color:red;" name="md-close"></ion-icon>
+        <ion-icon *ngIf="data.status === 'accepted'" style="color:green;" name="md-checkmark"></ion-icon>
+      </div>
+  </button>
+
+  <button ion-button clear item-end>
+    <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+  </button>
+</a>
+
+<a class="received" ion-item [navPush]="navigateTo" [navParams]="dataAndIsInvite"  *ngIf="isInvite">
   <ion-avatar item-start>
     <img src="{{ data.userIdAvatar || '../../assets/imgs/user.png' }}">
   </ion-avatar>
@@ -17,14 +29,6 @@
   <p>{{ data.date }} , {{ data.time }}</p>
 
   <button ion-button clear item-end>
-    <!--TODO need to build appInviteStatus attribute directive -->
-    <div class="statusBox">
-      <span *ngIf="data.status === 'pending'">In Attesa</span>
-      <span *ngIf="data.status === 'rejected'"></span>
-      <span *ngIf="data.status === 'accepted'"></span>
-    </div>
+    <ion-icon name="ios-arrow-forward-outline"></ion-icon>
   </button>
-  <button ion-button clear item-end>
-    <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline"></ion-icon>
-  </button>
-</button>
+</a>
