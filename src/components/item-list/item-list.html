@@ -1,6 +1,6 @@
 <button ion-item [navPush]="navigateTo" [navParams]="data" *ngIf="!isInvite">
   <ion-avatar item-start>
-    <img src="{{ data.avatar || '../../assets/imgs/user.png' }}" style="max-height: 14em; height: 100%; display: flex; margin: auto;">
+    <img src="{{ (data.avatar === '') ? data.avatar : '../../assets/imgs/user.png' }}" style="max-height: 14em; height: 100%; display: flex; margin: auto;">
   </ion-avatar>
   <h2>{{ data.name }}</h2>
   <p>{{ data.biography || data.description }}</p>

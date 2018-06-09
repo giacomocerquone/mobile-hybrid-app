@@ -11,12 +11,16 @@
   <ion-searchbar [(ngModel)]="searchTerm">
     <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
   </ion-searchbar>
-  <ion-list>
+
+  <div *ngIf="local$ | async as locals; else loading">
     <item-list
-      *ngFor="let local of localsList | filter: searchTerm"
+      *ngFor="let local of locals | filter: searchTerm"
       [data]="local"
       [navigateTo]="'LocalDetailPage'"
     >
     </item-list>
-  </ion-list>
+  </div>
+  <ng-template #loading>
+    <ion-spinner style="margin-top: 3em;"></ion-spinner>
+  </ng-template>
 </ion-content>
