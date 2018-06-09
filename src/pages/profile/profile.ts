@@ -17,13 +17,16 @@ export class ProfilePage {
     userId: '',
     name: '',
     surname: '',
-    birthday: '',
-    sex: '',
+    bornDate: null,
+    sex: null,
     city: '',
     favFood: '',
     interests: '',
     avatar: '',
+    job: '',
+    biography: '',
   };
+
   public minDate: string = moment().format('YYYY-MM-DD');
   public maxDate: string = moment().add(90, 'days').format('YYYY-MM-DD');
 

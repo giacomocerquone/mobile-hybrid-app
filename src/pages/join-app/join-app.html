@@ -15,8 +15,12 @@
       <ion-label>E-mail:</ion-label>
       <ion-input type="text" placeholder="example@mail.com" [(ngModel)]="mailContent.address" name="address"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Titolo:</ion-label>
+      <ion-input type="text" [(ngModel)]="mailContent.title" name="title"></ion-input>
+    </ion-item>
     <ion-item class="text">
-      <ion-textarea item-content rows="10" placeholder="Inserisci quì il testo della mail..." [(ngModel)]="mailContent.text" name="text"></ion-textarea>
+      <ion-textarea item-content rows="10" [(ngModel)]="mailContent.text" name="text"></ion-textarea>
     </ion-item>
     <div class="sendButton">
       <button ion-button type="submit" block>Invia mail</button>

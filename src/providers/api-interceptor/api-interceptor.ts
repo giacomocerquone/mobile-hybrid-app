@@ -15,6 +15,7 @@ export class ApiInterceptorProvider implements HttpInterceptor {
   constructor(public http: HttpClient, private authService: AuthServiceProvider) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log(req)
     const apiReq = req.clone({
       setHeaders: this.authService.isConnected()
         ? { Authorization: this.authService.getToken() }

@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import {
+  AlertController,
   IonicPage,
-  MenuController,
+  MenuController, NavController,
 } from 'ionic-angular';
+import {UserServiceProvider} from "../../providers/user-service/user-service";
+import {take} from "rxjs/operators";
 
 @IonicPage()
 @Component({
@@ -13,38 +16,53 @@ export class PeopleSearchPage {
 
   public toSearch = {
     name: '',
-    maleSex: false,
-    femaleSex: false,
-    work: '',
-    food: '',
-    age: '',
+    male: false,
+    female: false,
+    job: '',
+    favFood: '',
+    bornDate: '',
     interests: '',
   };
 
-  constructor(public menuController: MenuController) {
-  }
+  constructor(
+    public menuController: MenuController,
+    private userService: UserServiceProvider,
+    private navCtrl: NavController,
+    private alertCtrl: AlertController) {}
 
   public updateMaleSex() {
-    if (this.toSearch.femaleSex === true) {
-      this.toSearch.femaleSex = false;
-    }
-    /*console.log('maleSex = '+this.toSearch.maleSex);
-    console.log('femaleSex = '+this.toSearch.femaleSex);*/
+    if (this.toSearch.female) this.toSearch.female = false;
+    console.log(this.toSearch)
   }
   public updateFemaleSex() {
-    if (this.toSearch.maleSex === true) {
-      this.toSearch.maleSex = false;
-    }
-    /*console.log('maleSex = '+this.toSearch.maleSex);
-    console.log('femaleSex = ' + this.toSearch.femaleSex);*/
+    if (this.toSearch.male) this.toSearch.male = false;
   }
 
-  public logForm() {
-    console.log(this.toSearch);
+  public searchPeople() {
+    this.userService.searchPeople(this.toSearch)
+      .pipe(take(1))
+      .subscribe((data) => {
+        console.log(data)
+        this.navCtrl.push('PeopleListResultPage', data);
+      }, () => {
+        const failure = this.alertFactory(
+          'Errore',
+          'Ci sono stati errori nell\'invio del invito.',
+        );
+        failure.present();
+      });
   }
 
   public openMenu() {
     this.menuController.open();
+  }
+
+  private alertFactory(title, message) {
+    return this.alertCtrl.create({
+      title,
+      buttons: ['OK'],
+      subTitle: message,
+    });
   }
 
 }

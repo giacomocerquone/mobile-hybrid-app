@@ -23,14 +23,17 @@ export class UserServiceProvider {
     return this.http.get<Person[]>('neaUsers');
   }
 
-  public searchPerson(searchParams) {
-    const params = new HttpParams();
-    Object.keys(searchParams).forEach(el => params.append(el, params[el]));
-    return this.http.get<Person[]>('neaUsers/findOne', { params });
+  public searchPeople(searchParams) {
+    // For the JSON stringify, this is just how loopback works
+    searchParams.sex = searchParams.male ? 'male' : (searchParams.female) ? 'female' : '';
+    delete searchParams.male;
+    delete searchParams.female;
+    Object.keys(searchParams).forEach(key => (searchParams[key] === '') && delete searchParams[key]);
+
+    const searchParamsEnhanced = { where: searchParams };
+    return this.http.get<Person[]>('neaUsers?filter=' + JSON.stringify(searchParamsEnhanced));
   }
 
-  public sendJoinInvite() {
-
-  }
+  public sendJoinInvite() {}
 
 }

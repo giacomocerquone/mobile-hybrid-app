@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-keypad"></ion-icon>
+    </button>
+    <ion-title><h3>Risultati</h3></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="container">
+  <ion-list>
+    <item-list
+      *ngFor="let person of people"
+      [data]="person"
+      [navigateTo]="'PersonDetailPage'"
+    >
+    </item-list>
+  </ion-list>
+</ion-content>

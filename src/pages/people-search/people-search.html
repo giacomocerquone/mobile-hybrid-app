@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="container">
-  <form (ngSubmit)="logForm()">
+  <form (ngSubmit)="searchPeople()">
     <ion-item>
       <ion-label>Nome:</ion-label>
       <ion-input type="text" [(ngModel)]="toSearch.name" name="name"></ion-input>
@@ -16,25 +16,25 @@
     <ion-label style="font-size:1.6rem; color:#999; text-align:left; margin-left: 1em; margin-bottom:0em;">Sesso:</ion-label>
     <div class="selectSex">
       <div class="singleSex">
-        <ion-checkbox [(ngModel)]="toSearch.maleSex" (click)="updateMaleSex()" name="maleSex"></ion-checkbox>
+        <ion-checkbox [(ngModel)]="toSearch.male" (click)="updateMaleSex()" name="maleSex"></ion-checkbox>
         <ion-icon ios="ios-male" md="md-male"></ion-icon>
       </div>
       <div class="singleSex femaleSex">
-        <ion-checkbox [(ngModel)]="toSearch.femaleSex" (click)="updateFemaleSex()" name="femaleSex"></ion-checkbox>
+        <ion-checkbox [(ngModel)]="toSearch.female" (click)="updateFemaleSex()" name="femaleSex"></ion-checkbox>
         <ion-icon ios="ios-female" md="md-female"></ion-icon>
       </div>
     </div>
     <ion-item>
       <ion-label>Lavoro:</ion-label>
-      <ion-input type="text" [(ngModel)]="toSearch.work" name="work"></ion-input>
+      <ion-input type="text" [(ngModel)]="toSearch.job" name="work"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Cibo preferito:</ion-label>
-      <ion-input type="text" [(ngModel)]="toSearch.food" name="food"></ion-input>
+      <ion-input type="text" [(ngModel)]="toSearch.favFood" name="food"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Età:</ion-label>
-      <ion-input type="text" [(ngModel)]="toSearch.age" name="age"></ion-input>
+      <ion-input type="text" [(ngModel)]="toSearch.bornDate" name="age"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Interessi:</ion-label>

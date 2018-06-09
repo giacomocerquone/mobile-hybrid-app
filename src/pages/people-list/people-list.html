@@ -18,7 +18,7 @@
 
     <div *ngIf="people$ | async as people; else loading">
         <item-list
-          *ngFor="let person of people || [] | filter: searchTerm"
+          *ngFor="let person of people | filter: searchTerm"
           [data]="person"
           [navigateTo]="'PersonDetailPage'"
         >
