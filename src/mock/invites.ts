@@ -1,5 +1,4 @@
 import { Invite } from '../models/Invite';
-import { persons } from './persons';
 
 export const invites: Invite[] = [
   {

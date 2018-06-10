@@ -1,18 +1,18 @@
-<ion-header *ngIf="inviteInfo.isInvite">
+<ion-header *ngIf="loggedUser !== inviteInfo.userReceivedId">
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Inviti Ricevuti</h3></ion-title>
+    <ion-title><h3>Invito Ricevuto</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content *ngIf="inviteInfo.isInvite" padding>
+<ion-content *ngIf="loggedUser !== inviteInfo.userReceivedId" padding>
   <ion-item class="top">
     <ion-label>
       <span>Invito da:<br><b>{{inviteInfo.userId}}</b></span>
       <img src="https://tinyurl.com/y84tlt5j"/>
-    </ion-label>    
+    </ion-label>
   </ion-item>
   <ion-item>
     <ion-label>Localiltà: {{inviteInfo.location}}</ion-label>
@@ -33,21 +33,21 @@
   </div>
 </ion-content>
 
-<ion-header *ngIf="!inviteInfo.isInvite">
+<ion-header *ngIf="loggedUser === inviteInfo.userReceivedId">
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Inviti Inviati</h3></ion-title>
+    <ion-title><h3>Invito Inviato</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content *ngIf="!inviteInfo.isInvite" padding>
+<ion-content *ngIf="loggedUser === inviteInfo.userReceivedId" padding>
   <ion-item class="top">
     <ion-label>
       <span>Invito a:<br><b>{{inviteInfo.userReceivedId}}</b></span>
       <img src="https://tinyurl.com/y84tlt5j"/>
-    </ion-label>    
+    </ion-label>
   </ion-item>
   <ion-item>
     <ion-label>Localiltà: {{inviteInfo.location}}</ion-label>
@@ -64,7 +64,7 @@
   </ion-item>
 </ion-content>
 
-<ion-footer *ngIf="!isInvite">
+<ion-footer *ngIf="loggedUser === inviteInfo.userReceivedId">
   <ion-toolbar>
     <ion-title>Stato: {{inviteInfo.status}}</ion-title>
   </ion-toolbar>

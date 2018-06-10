@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Person } from '../../models/Person';
 import { AuthServiceProvider } from '../auth-service/auth-service';
 
+import {merge, take} from 'rxjs/operators';
+
 @Injectable()
 export class InviteServiceProvider {
 
@@ -15,7 +17,10 @@ export class InviteServiceProvider {
 
   public getInvites() {
     const userId = this.authService.getUserId();
-    return this.http.get<Person[]>('neaUsers/' + userId + '/invites');
+    const sentInvites$ = this.http.get<Person[]>('neaUsers/' + userId + '/invites');
+    const receivedInvites$ = this.http.get<Person[]>('Invites/' + userId);
+
+    return sentInvites$.pipe(merge(receivedInvites$));
   }
 
   public editInvite(editedInvite) {

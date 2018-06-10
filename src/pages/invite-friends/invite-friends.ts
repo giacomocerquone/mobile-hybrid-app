@@ -29,7 +29,7 @@ export class InviteFriendsPage {
   // TODO: fissare orario minimo tot minuti più avanti e controllare che non sia passato
 
   public person: Person = this.navParams.data;
-  public toSend: Invite = {
+  public toSend: any = {
     userId: '',
     userIdAvatar: '',
     userReceivedId: this.person.userId,

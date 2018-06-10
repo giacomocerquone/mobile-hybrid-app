@@ -12,18 +12,11 @@ export class InvitesListPage {
 
   public invitesList: Invite[] = invites;
   public searchTerm: string = '';
-  public loggedUser: string = invites[0].userId;//Da prendere dal database
-
-  constructor() {
-    console.log(this.invitesList);
-  }
+  public loggedUser: string = invites[0].userId; // TODO get it from authservice
 
   isInvited(invite) {
-    if(this.loggedUser === invite.userId) {
-      return false;
-    } else if(this.loggedUser === invite.userReceivedId){
-      return true;
-    }
+    // Can be replaced with
+    return this.loggedUser === invite.userReceivedId;
   }
 
 }
