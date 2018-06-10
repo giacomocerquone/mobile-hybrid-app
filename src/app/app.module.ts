@@ -13,6 +13,8 @@ import { LocalServiceProvider } from '../providers/local-service/local-service';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { MyApp } from './app.component';
 
+import { Camera } from '@ionic-native/camera';
+
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [
@@ -42,6 +44,7 @@ import { MyApp } from './app.component';
     UserServiceProvider,
     LocalServiceProvider,
     InviteServiceProvider,
+    Camera,
   ],
 })
 export class AppModule {}

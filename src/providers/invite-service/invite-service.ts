@@ -10,7 +10,7 @@ export class InviteServiceProvider {
 
   constructor(public http: HttpClient, public authService: AuthServiceProvider) {}
 
-  public createInvite(newInvite) {
+  public sendInvite(newInvite) {
     const userId = this.authService.getUserId();
     return this.http.post<Person[]>('neaUsers/' + userId + '/invites', newInvite);
   }

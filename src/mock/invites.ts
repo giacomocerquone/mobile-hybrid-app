@@ -3,7 +3,6 @@ import { Invite } from '../models/Invite';
 export const invites: Invite[] = [
   {
     userId: 'Aristotele',
-    userIdAvatar: '',
     userReceivedId: 'Alessandro',
     date: '06/06/18',
     time: '12:30',
@@ -12,7 +11,6 @@ export const invites: Invite[] = [
     status: 'accepted',
   },  {
     userId: 'Alessandro',
-    userIdAvatar: '',
     userReceivedId: 'Aristotele',
     date: '06/06/18',
     time: '12:30',
@@ -21,7 +19,6 @@ export const invites: Invite[] = [
     status: 'accepted',
   },  {
     userId: 'Aristotele',
-    userIdAvatar: '',
     userReceivedId: 'Alessandro',
     date: '10/06/18',
     time: '12:30',
@@ -30,7 +27,6 @@ export const invites: Invite[] = [
     status: 'pending',
   },  {
     userId: 'Aristotele',
-    userIdAvatar: '',
     userReceivedId: 'Alessandro',
     date: '10/06/18',
     time: '12:30',
@@ -39,7 +35,6 @@ export const invites: Invite[] = [
     status: 'rejected',
   },  {
     userId: 'Alessandro',
-    userIdAvatar: '',
     userReceivedId: 'Aristotele',
     date: '06/06/18',
     time: '12:30',
@@ -48,7 +43,6 @@ export const invites: Invite[] = [
     status: 'pending',
   },  {
     userId: 'Alessandro',
-    userIdAvatar: '',
     userReceivedId: 'Aristotele',
     date: '06/06/18',
     time: '12:30',

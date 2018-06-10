@@ -14,6 +14,7 @@ import { take } from 'rxjs/operators';
 import { Invite } from '../../models/Invite';
 import { Person } from '../../models/Person';
 import { InviteServiceProvider } from '../../providers/invite-service/invite-service';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -29,9 +30,8 @@ export class InviteFriendsPage {
   // TODO: fissare orario minimo tot minuti più avanti e controllare che non sia passato
 
   public person: Person = this.navParams.data;
-  public toSend: any = {
-    userId: '',
-    userIdAvatar: '',
+  public toSend: Invite = {
+    userId: this.authService.getUserId(),
     userReceivedId: this.person.userId,
     date: '',
     time: '',
@@ -44,12 +44,13 @@ export class InviteFriendsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private inviteService: InviteServiceProvider,
+    private authService: AuthServiceProvider,
     private toastCtrl: ToastController,
   ) {}
 
   public sendInvitation() {
     console.log(this.toSend);
-    this.inviteService.createInvite(this.toSend)
+    this.inviteService.sendInvite(this.toSend)
       .pipe(take(1))
       .subscribe(() => {
         const success = this.toastFactory(

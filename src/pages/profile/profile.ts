@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {ToastController, IonicPage, NavController, NavParams, Toast} from 'ionic-angular';
+import { ToastController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Person } from '../../models/Person';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 import moment from 'moment';
 import { take } from 'rxjs/operators';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
@@ -37,6 +38,7 @@ export class ProfilePage {
     public navParams: NavParams,
     private userService: UserServiceProvider,
     private toastCtrl: ToastController,
+    private camera: Camera,
   ) {}
 
   public updateMaleSex() {
@@ -44,6 +46,27 @@ export class ProfilePage {
   }
   public updateFemaleSex() {
     if (this.toUpdate.male) this.toUpdate.male = false;
+  }
+
+  options: CameraOptions = {
+    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    quality: 100,
+    targetWidth: 256,
+    targetHeight: 256,
+    encodingType: this.camera.EncodingType.JPEG,
+    correctOrientation: true,
+  };
+
+  public openImage() {
+    this.camera.getPicture(this.options).then(
+      (imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+        const base64Image = 'data:image/jpeg;base64,' + imageData;
+      },    (err) => {
+      console.log(err);
+    });
   }
 
   public ionViewDidLoad() {

@@ -1,7 +1,6 @@
 export class Invite {
 
   public userId: string;
-  public userIdAvatar: string;
   public userReceivedId: string;
   public date: string = '';
   public time: string = '';
