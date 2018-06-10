@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Person } from '../../models/Person';
 import { AuthServiceProvider } from '../auth-service/auth-service';
 
-import {merge, take} from 'rxjs/operators';
+import { merge } from 'rxjs/operators';
 
 @Injectable()
 export class InviteServiceProvider {
