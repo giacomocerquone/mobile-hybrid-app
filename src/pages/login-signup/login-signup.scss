@@ -14,14 +14,4 @@ page-login-signup {
     display: flex;
     flex-direction: column;
   }
-
-  .general-input {
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: .5em 0;
-  }
-
-  .button-container > button {
-    width: 100%;
-  }
 }
