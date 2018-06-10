@@ -32,8 +32,8 @@ export class InviteFriendsPage {
   public person: Person = this.navParams.data;
   public toSend: Invite = {
     userId: this.authService.getUserId(),
-    userReceivedId: this.person.userId,
-    date: '',
+    userReceivedId: this.person.email,
+    date: new Date(),
     time: '',
     description: '',
     location: '',
@@ -50,19 +50,22 @@ export class InviteFriendsPage {
 
   public sendInvitation() {
     console.log(this.toSend);
-    this.inviteService.sendInvite(this.toSend)
-      .pipe(take(1))
-      .subscribe(() => {
-        const success = this.toastFactory(
-          'L\'invito è stato inviato.',
-        );
-        success.present();
-      },         () => {
-        const failure = this.toastFactory(
-          'Ci sono stati errori nell\'invio del invito.',
-        );
-        failure.present();
-      });
+    if (this.toSend.userReceivedId) {
+      this.inviteService.sendInvite(this.toSend)
+        .pipe(take(1))
+        .subscribe(() => {
+          const success = this.toastFactory(
+            'L\'invito è stato inviato.',
+          );
+          success.present();
+        },         (err) => {
+          console.log(err)
+          const failure = this.toastFactory(
+            'Ci sono stati errori nell\'invio del invito.',
+          );
+          failure.present();
+        });
+    }
   }
 
   private toastFactory(message) {

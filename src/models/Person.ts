@@ -4,6 +4,7 @@ export class Person {
   public ttl?: number = 0;
   public userId?: string = '';
 
+  public email?: string = '';
   public username?: string = '';
   public name?: string = '';
   public surname?: string = '';
