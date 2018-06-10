@@ -49,8 +49,7 @@ export class LoginSignupPage {
           this.menuController.enable(true, 'navigationDrawer');
         },
         (err) => {
-          console.log(err)
-          this.errors = 'problemi';
+          this.errors = err.error.error.message || 'Si sono verificati dei problemi';
         });
   }
 
@@ -63,7 +62,7 @@ export class LoginSignupPage {
           this.menuController.enable(true, 'navigationDrawer');
         },
         (err) => {
-          this.errors = err.error.error.message;
+          this.errors = err.error.error.message || 'Si sono verificati dei problemi';
         });
 
   }
