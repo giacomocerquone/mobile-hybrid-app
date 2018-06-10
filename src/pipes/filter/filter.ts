@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Invite } from '../../models/Invite';
+import { Person } from '../../models/Person';
 
 @Pipe({
   name: 'filter',
@@ -10,6 +11,9 @@ export class FilterPipe implements PipeTransform {
       if (this.isInvite(el)) {
         return el.userId.toLowerCase().includes(searchTerm.toLowerCase());
       }
+      if (this.isPerson(el)) {
+        return el.username.toLowerCase().includes(searchTerm.toLowerCase());
+      }
       return el.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
   }
@@ -18,6 +22,10 @@ export class FilterPipe implements PipeTransform {
 
   private isInvite(invite: Invite): invite is Invite {
     return 'userReceivedId' in invite;
+  }
+
+  private isPerson(person: Person): person is Person {
+    return 'username' in person;
   }
 
 }

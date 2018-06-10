@@ -10,4 +10,23 @@ page-profile {
     margin: 1em auto;
     font-size: 0.5cm;
   }
+  .selectSex {
+    display: flex;
+    flex-direction: row;
+    height:3.29em;
+  }
+  .singleSex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    margin: 0 0 0 2.5%;
+  }
+  .femaleSex {
+    margin: 0 0 0 15%;
+  }
+  .singleSex ion-icon {
+    font-size:2em;
+  }
 }

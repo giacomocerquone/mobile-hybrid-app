@@ -16,6 +16,9 @@ export class UserServiceProvider {
 
   public editProfile(editedProfile) {
     const userId = this.authService.getUserId();
+    editedProfile.sex = editedProfile.male ? 'male' : (editedProfile.female) ? 'female' : '';
+    delete editedProfile.male;
+    delete editedProfile.female;
     return this.http.patch<Person>('neaUsers/' + userId, editedProfile);
   }
 

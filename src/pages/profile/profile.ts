@@ -19,6 +19,8 @@ export class ProfilePage {
     surname: '',
     bornDate: null,
     sex: null,
+    male: false,
+    female: false,
     city: '',
     favFood: '',
     interests: '',
@@ -37,11 +39,20 @@ export class ProfilePage {
     private toastCtrl: ToastController,
   ) {}
 
+  public updateMaleSex() {
+    if (this.toUpdate.female) this.toUpdate.female = false;
+  }
+  public updateFemaleSex() {
+    if (this.toUpdate.male) this.toUpdate.male = false;
+  }
+
   public ionViewDidLoad() {
     this.userService.getProfile()
       .pipe(take(1))
       .subscribe((data) => {
         this.toUpdate = data;
+        if (data.sex === 'male') this.toUpdate.male = true;
+        if (data.sex === 'female') this.toUpdate.female = true;
       },         () => {
       },         () => {
         this.loadingData = false;

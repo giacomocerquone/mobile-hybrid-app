@@ -49,7 +49,9 @@ export class LoginSignupPage {
           this.menuController.enable(true, 'navigationDrawer');
         },
         (err) => {
-          this.errors = err.error.error.message || 'Si sono verificati dei problemi';
+          this.errors = (err.error.error)
+            ? err.error.error.message
+            : 'Si sono verificati dei problemi';
         });
   }
 
@@ -57,12 +59,12 @@ export class LoginSignupPage {
     return this.authService.signUp(this.credentials)
       .subscribe(
         (data) => {
-          this.authService.setUserInfo(data.id, null, data.userId);
-          this.navCtrl.setRoot('PeopleListPage');
-          this.menuController.enable(true, 'navigationDrawer');
+          this.viewLogin = true;
         },
         (err) => {
-          this.errors = err.error.error.message || 'Si sono verificati dei problemi';
+          this.errors = (err.error.error)
+            ? err.error.error.message
+            : 'Si sono verificati dei problemi';
         });
 
   }

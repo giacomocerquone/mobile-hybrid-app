@@ -24,10 +24,17 @@
       <ion-label>Data di Nascita:</ion-label>
       <ion-datetime displayFormat="DD/MM/YYYY" min={{minDate}} max="{{maxDate}}" placeholder={{minDate}} [(ngModel)]="date" name="date"></ion-datetime>
     </ion-item>
-    <ion-item>
-      <ion-label>Sesso:</ion-label>
-      <ion-input type="text" [(ngModel)]="toUpdate.sex" name="sex"></ion-input>
-    </ion-item>
+    <ion-label style="font-size:1.6rem; color:#999; text-align:left; margin-left: 1em; margin-bottom:0em;">Sesso:</ion-label>
+    <div class="selectSex">
+      <div class="singleSex">
+        <ion-checkbox [(ngModel)]="toUpdate.male" (click)="updateMaleSex()" name="maleSex"></ion-checkbox>
+        <ion-icon ios="ios-male" md="md-male"></ion-icon>
+      </div>
+      <div class="singleSex femaleSex">
+        <ion-checkbox [(ngModel)]="toUpdate.female" (click)="updateFemaleSex()" name="femaleSex"></ion-checkbox>
+        <ion-icon ios="ios-female" md="md-female"></ion-icon>
+      </div>
+    </div>
     <ion-item>
       <ion-label>Vivo a:</ion-label>
       <ion-input type="text" [(ngModel)]="toUpdate.city" name="city"></ion-input>

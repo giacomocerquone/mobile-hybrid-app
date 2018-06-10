@@ -6,6 +6,7 @@ import {
 } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { take } from 'rxjs/operators';
+import { Person } from '../../models/Person';
 
 @IonicPage()
 @Component({
@@ -14,13 +15,13 @@ import { take } from 'rxjs/operators';
 })
 export class PeopleSearchPage {
 
-  public toSearch = {
+  public toSearch: Person = {
     name: '',
     male: false,
     female: false,
     job: '',
     favFood: '',
-    bornDate: '',
+    bornDate: null,
     interests: '',
   };
 
@@ -32,7 +33,6 @@ export class PeopleSearchPage {
 
   public updateMaleSex() {
     if (this.toSearch.female) this.toSearch.female = false;
-    console.log(this.toSearch);
   }
   public updateFemaleSex() {
     if (this.toSearch.male) this.toSearch.male = false;
@@ -42,7 +42,6 @@ export class PeopleSearchPage {
     this.userService.searchPeople(this.toSearch)
       .pipe(take(1))
       .subscribe((data) => {
-        console.log(data);
         this.navCtrl.push('PeopleListResultPage', data);
       },         () => {
         const failure = this.toastFactory(
