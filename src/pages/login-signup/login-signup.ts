@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import {
+  AlertController,
   IonicPage,
   MenuController,
   NavController,
@@ -16,11 +17,14 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class LoginSignupPage {
 
   public viewLogin: boolean = true;
-  public credentials: { email: string, password: string, username: string } = {
-    email: '',
-    password: '',
-    username: '',
-  };
+  public credentials:
+    { email: string, password: string, username: string, passwordConfirm: string } =
+    {
+      email: '',
+      username: '',
+      password: '',
+      passwordConfirm: '',
+    };
   public errors: string = '';
 
   constructor(
@@ -28,6 +32,7 @@ export class LoginSignupPage {
     public menuController: MenuController,
     private http: HttpClient,
     private authService: AuthServiceProvider,
+    private alertCtrl: AlertController,
   ) {
     this.unableMenu();
   }
@@ -41,6 +46,8 @@ export class LoginSignupPage {
   }
 
   public login() {
+    delete this.credentials.passwordConfirm;
+    delete this.credentials.username;
     return this.authService.login(this.credentials)
       .subscribe(
         (data) => {
@@ -56,17 +63,28 @@ export class LoginSignupPage {
   }
 
   public signup() {
-    return this.authService.signUp(this.credentials)
-      .subscribe(
-        (data) => {
-          this.viewLogin = true;
-        },
-        (err) => {
-          this.errors = (err.error.error)
-            ? err.error.error.message
-            : 'Si sono verificati dei problemi';
-        });
-
+    if (this.credentials.username &&
+      this.credentials.password &&
+      this.credentials.passwordConfirm &&
+      this.credentials.email &&
+      (this.credentials.password === this.credentials.passwordConfirm)
+    ) {
+      return this.authService.signUp(this.credentials)
+        .subscribe(
+          (data) => {
+            this.viewLogin = true;
+          },
+          (err) => {
+            this.errors = (err.error.error)
+              ? err.error.error.message
+              : 'Si sono verificati dei problemi';
+          });
+    }
+    const alert = this.alertCtrl.create({
+      title: 'Errore',
+      subTitle: 'Assicurati di aver inserito tutti i dati correttamente.',
+      buttons: ['Ok'],
+    });
+    alert.present();
   }
-
 }

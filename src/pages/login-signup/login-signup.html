@@ -8,7 +8,6 @@
     <div *ngIf="viewLogin" style="display: flex; flex-direction: column; width:90%; margin: auto;">
 
       <md-input [(data)]="credentials.email" [label]="'Email'" [type]="'text'"></md-input>
-
       <md-input [(data)]="credentials.password" [label]="'Password'" [type]="'password'"></md-input>
 
       <div class="button-container" style="display:flex; flex-direction: row; justify-content: center">
@@ -22,10 +21,11 @@
 
     <div *ngIf="!viewLogin" style="display: flex; flex-direction: column; width:90%; margin: auto;">
 
-      <ion-input type="email" class="general-input" [(ngModel)]="credentials.email" placeholder="Inserisci la tua email"></ion-input>
-      <ion-input type="password" class="general-input" [(ngModel)]="credentials.password" placeholder="Inserisci la tua password"></ion-input>
-      <ion-input type="password" class="general-input" [(ngModel)]="credentials.password" placeholder="Conferma password"></ion-input>
-      <ion-input type="text" class="general-input" [(ngModel)]="credentials.username" placeholder="Scegli uno username (mail se non inserito)"></ion-input>
+      <md-input [(data)]="credentials.email" [label]="'Email'" [type]="'text'"></md-input>
+      <md-input [(data)]="credentials.username" [label]="'Username'" [type]="'text'"></md-input>
+      <md-input [(data)]="credentials.password" [label]="'Password'" [type]="'password'"></md-input>
+      <md-input [(data)]="credentials.passwordConfirm" [label]="'Conferma Password'" [type]="'password'"></md-input>
+
       <div class="button-container" style="display:flex; flex-direction: row; justify-content: center">
         <button ion-button color="secondary" (click)="signup()">Registrati</button>
         <button ion-button (click)="switchView()">Login</button>
