@@ -1,3 +1,97 @@
-{
-  "HELLO": "lol"
+{ 
+  "app": {
+    
+  },
+  "loginSignup": {
+    "noAccountString": "Dont you have an account?",
+    "signup": "Sign Up",
+    "signin": "Sign In",
+    "confirm": "Confirm password",
+    "alreadyRegistered": "Are you already registered?"
+  },
+  "inviteDetail": {
+    "inviteFrom": "Invite from: ",
+    "inviteTo": "Invite to: ",
+    "location":"Location:",
+    "time":"Time:",
+    "date":"Date:",
+    "description":"Insert a description here...",
+    "status":"Status: "
+  },
+  "inviteFriends": {
+    "invite":"Invite",
+    "inviteTo":"Invite to:",
+    "location":"Location:",
+    "time":"Time:",
+    "date":"Date:",
+    "description":"Description: ",
+    "send":"Send"
+  },
+  "invitesList": {
+    "yourInvites":"Your invites"
+  },
+  "joinApp": {
+    "subject":"Subject:",
+    "send":"Send",
+    "inviteYourFriends":"Invite your friends"
+  },
+  "localDetail": {
+    "infoAbout":"Info about:",
+    "cuisineStyle":"Cuisine style:",
+    "rating":"rating",
+    "averagePrice":"averagePrice",
+    "description":"description"
+  },
+  "localsList": {
+    "title":"Locals List"
+  },
+  "peopleList": {
+    "title":"People List",
+    "advancedSearch":"Advanced Search"
+  },
+  "peopleListResult": {
+    "results":"Results"
+  },
+  "peopleSearch": {
+    "title":"Advanced Search",
+    "name":"Name:",
+    "sex":"Sex:",
+    "work":"Work:",
+    "favFood":"Favorite Food:",
+    "age":"Age:",
+    "interests":"Interests:", 
+    "searchBtn":"Search"
+  },
+  "personDetail": {
+    "title":"Profile of: ",
+    "name":"Name:",
+    "surname":"Surname",
+    "description":"Description:",
+    "bornDate":"Bord date:",
+    "sex":"Sex:",
+    "livesIn":"Lives in:",
+    "favFood":"Favorite food:",
+    "interests":"Interests:",
+    "inviteBtn":"Send"
+  },
+  "profile": {
+    "title":"Profile",
+    "changeImage":"Change Image",
+    "username":"Username:",
+    "name":"Name:",
+    "surname":"Surname",
+    "bornDate":"Born date:",
+    "sex":"Sex:",
+    "liveIn":"Live in:",
+    "favFood":"Favorite food:",
+    "interests":"Interests",
+    "modifyBtn":"Modify Profile"
+  },
+  "itemList": {
+    "inviteTo":"Invite to:",
+    "inviteFrom":"Invite from:",
+    "answer":"Answer",
+    "youAccepted":"You accepted",
+    "youRefused":"You refused"
+  }
 }

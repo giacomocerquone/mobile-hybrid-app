@@ -1,3 +1,6 @@
 {
-  "HELLO": "Ciao"
+  "loginSignup": {
+    "noAccountString": "Dont you have an account?",
+    "signup": "Sign Up"
+  }
 }

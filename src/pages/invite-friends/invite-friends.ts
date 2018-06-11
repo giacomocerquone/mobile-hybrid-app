@@ -15,6 +15,7 @@ import { Invite } from '../../models/Invite';
 import { Person } from '../../models/Person';
 import { InviteServiceProvider } from '../../providers/invite-service/invite-service';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -46,7 +47,10 @@ export class InviteFriendsPage {
     private inviteService: InviteServiceProvider,
     private authService: AuthServiceProvider,
     private toastCtrl: ToastController,
-  ) {}
+    private translate: TranslateService,
+  ) {
+    this.translate.setDefaultLang('en');
+  }
 
   public sendInvitation() {
     console.log(this.toSend);

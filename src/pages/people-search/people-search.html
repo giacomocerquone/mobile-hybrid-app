@@ -3,17 +3,17 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Ricerca Avanzata</h3></ion-title>
+    <ion-title><h3>{{ 'peopleSearch.title' | translate }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="container" padding>
   <form (ngSubmit)="searchPeople()">
     <ion-item>
-      <ion-label>Nome:</ion-label>
+      <ion-label>{{ 'peopleSearch.name' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toSearch.name" name="name"></ion-input>
     </ion-item>
-    <ion-label style="font-size:1.6rem; color:#999; text-align:left; margin-left: 1em; margin-bottom:0em;">Sesso:</ion-label>
+    <ion-label style="font-size:1.6rem; color:#999; text-align:left; margin-left: 1em; margin-bottom:0em;">{{ 'peopleSearch.sex' | translate }}</ion-label>
     <div class="selectSex">
       <div class="singleSex">
         <ion-checkbox [(ngModel)]="toSearch.male" (click)="updateMaleSex()" name="maleSex"></ion-checkbox>
@@ -25,23 +25,23 @@
       </div>
     </div>
     <ion-item>
-      <ion-label>Lavoro:</ion-label>
+      <ion-label>{{ 'peopleSearch.work' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toSearch.job" name="work"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Cibo preferito:</ion-label>
+      <ion-label>{{ 'peopleSearch.favFood' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toSearch.favFood" name="food"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Età:</ion-label>
+      <ion-label>{{ 'peopleSearch.age' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toSearch.bornDate" name="age"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Interessi:</ion-label>
+      <ion-label>{{ 'peopleSearch.interests' | translate }}</ion-label>
       <ion-textarea rows="4" [(ngModel)]="toSearch.interests" name="interests"></ion-textarea>
     </ion-item>
     <div class="searchButton">
-      <button ion-button type="submit" block>Cerca</button>
+      <button ion-button type="submit" block>{{ 'peopleSearch.searchBtn' | translate }}</button>
     </div>
   </form>
 

@@ -9,6 +9,7 @@ import {
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { TranslateService } from '@ngx-translate/core';
+import { take } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -27,6 +28,7 @@ export class LoginSignupPage {
       passwordConfirm: '',
     };
   public errors: string = '';
+  public confirmText: string = '';
 
   constructor(
     public navCtrl: NavController,
@@ -38,6 +40,14 @@ export class LoginSignupPage {
   ) {
     this.unableMenu();
     this.translate.setDefaultLang('en');
+  }
+
+  ionViewDidLoad() {
+    this.translate.get('loginSignup.confirm')
+      .pipe(take(1))
+      .subscribe(val => {
+        this.confirmText = val;
+      })
   }
 
   public unableMenu() {

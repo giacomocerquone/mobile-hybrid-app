@@ -4,6 +4,8 @@ import { Invite } from '../../models/Invite';
 import { Observable } from 'rxjs/Observable';
 import { InviteServiceProvider } from '../../providers/invite-service/invite-service';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { TranslateService } from '@ngx-translate/core';
+import { take } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -19,7 +21,10 @@ export class InvitesListPage {
   constructor(
     private inviteService: InviteServiceProvider,
     private authService: AuthServiceProvider,
-  ) {}
+    private translate: TranslateService,
+  ) {
+    this.translate.setDefaultLang('en');
+  }
 
   isInvited(invite) {
     return this.authService.getUserId() === invite.targetUser.username;

@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Lista Persone</h3></ion-title>
+    <ion-title><h3>{{ 'peopleList.title' | translate }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
     <ion-icon style="font-size: 2em;" name="ios-settings"></ion-icon>
   </ion-searchbar>
   <button ion-button color="light" item-end [navPush]="'PeopleSearchPage'">
-    Ricerca Avanzata
+      {{ 'peopleList.advancedSearch' | translate }}
   </button>
   <ion-list>
 

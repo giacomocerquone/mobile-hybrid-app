@@ -3,32 +3,32 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Il tuo Profilo</h3></ion-title>
+    <ion-title><h3>{{ 'profile.title' | translate }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <img style="max-height: 14em; height: 100%; display: flex; margin: auto;" src="{{ toUpdate.avatar || '../assets/imgs/user.png' }}" />
-  <a ion-button (click)="openImage()" style="display: block; width: 11em; margin: .5em auto 0 auto;">Cambia immagine</a>
+  <a ion-button (click)="openImage()" style="display: block; width: 11em; margin: .5em auto 0 auto;">{{ 'profile.changeImage' | translate }}</a>
   <div class="divider"></div>
   <form (ngSubmit)="editProfile()">
     <ion-item>
-      <ion-label>Username:</ion-label>
+      <ion-label>{{ 'profile.username' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toUpdate.username" name="username"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Nome:</ion-label>
+      <ion-label>{{ 'profile.name' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toUpdate.name" name="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Cognome:</ion-label>
+      <ion-label>{{ 'profile.surname' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toUpdate.surname" name="surname"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Data di Nascita:</ion-label>
+      <ion-label>{{ 'profile.bornDate' | translate }}</ion-label>
       <ion-datetime displayFormat="DD/MM/YYYY" placeholder={{minDate}} [(ngModel)]="toUpdate.bornDate" name="date"></ion-datetime>
     </ion-item>
-    <ion-label style="font-size:1.6rem; color:#999; text-align:left; margin-left: 1em; margin-bottom:0em;">Sesso:</ion-label>
+    <ion-label style="font-size:1.6rem; color:#999; text-align:left; margin-left: 1em; margin-bottom:0em;">{{ 'profile.sex' | translate }}</ion-label>
     <div class="selectSex">
       <div class="singleSex">
         <ion-checkbox [(ngModel)]="toUpdate.male" (click)="updateMaleSex()" name="maleSex"></ion-checkbox>
@@ -40,15 +40,15 @@
       </div>
     </div>
     <ion-item>
-      <ion-label>Vivo a:</ion-label>
+      <ion-label>{{ 'profile.liveIn' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toUpdate.city" name="city"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Cibo preferito:</ion-label>
+      <ion-label>{{ 'profile.favFood' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toUpdate.favFood" name="favFood"></ion-input>
     </ion-item>
     <ion-item style="height: 6em;">
-      <ion-label>Interessi:</ion-label>
+      <ion-label>{{ 'profile.interests' | translate }}</ion-label>
       <ion-textarea rows="4" [(ngModel)]="toUpdate.interests" name="interests"></ion-textarea>
     </ion-item>
 
@@ -65,7 +65,7 @@
 
 
     <ion-spinner *ngIf="loadingData" style="display: block; margin: 1em auto; width: 3em;"></ion-spinner>
-    <button ion-button *ngIf="!loadingData" type="submit" class="sendButton" block>Modifica Profilo</button>
+    <button ion-button *ngIf="!loadingData" type="submit" class="sendButton" block>{{ 'profile.modifyBtn' | translate }}</button>
   </form>
 
 </ion-content>

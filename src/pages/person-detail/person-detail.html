@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Il profilo di {{ person.username | capitalize }}</h3></ion-title>
+    <ion-title><h3>{{ 'personDetail.title' | translate }}{{ person.username | capitalize }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,15 +11,15 @@
 <ion-content padding>
   <img style="max-height: 14em; height: 100%; display: flex; margin: auto;" src="{{ person.avatar || '../assets/imgs/user.png' }}" />
   <div class="divider"></div>
-  <p>Nome: {{ person.name | capitalize }}</p>
-  <p>Cognome: {{ person.surname | capitalize }}</p>
-  <p>Descrizione: {{ person.biography }}</p>
-  <p>Data di Nascita: {{ person.bornDate }}</p>
-  <p>Sesso: {{ person.sex }}</p>
-  <p>Vivo a: {{ person.city }}</p>
-  <p>Cibo preferito: {{ person.favFood }}</p>
-  <p>Interessi:</p>
+  <p>{{ 'personDetail.name' | translate }} {{ person.name | capitalize }}</p>
+  <p>{{ 'personDetail.surname' | translate }} {{ person.surname | capitalize }}</p>
+  <p>{{ 'personDetail.description' | translate }} {{ person.biography }}</p>
+  <p>{{ 'personDetail.bornDate' | translate }} {{ person.bornDate }}</p>
+  <p>{{ 'personDetail.sex' | translate }} {{ person.sex }}</p>
+  <p>{{ 'personDetail.livesIn' | translate }} {{ person.city }}</p>
+  <p>{{ 'personDetail.favFood' | translate }} {{ person.favFood }}</p>
+  <p>{{ 'personDetail.interests' | translate }}</p>
   <p>{{ person.interests }}</p>
 
-  <button ion-button type="submit" class="sendButton" block [navPush]="'InviteFriendsPage'" [navParams]="person">Invita</button>
+  <button ion-button type="submit" class="sendButton" block [navPush]="'InviteFriendsPage'" [navParams]="person">{{ 'personDetail.inviteBtn' | translate }}</button>
 </ion-content>

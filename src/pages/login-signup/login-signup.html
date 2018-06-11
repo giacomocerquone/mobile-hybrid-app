@@ -29,10 +29,10 @@
         ></md-input>
 
         <div class="button-container" style="display:flex; justify-content: center">
-          <button type="submit" ion-button color="primary" style=" text-transform: none; font-weight: 200; width: 80%; padding: 1.5em 0;" (click)="login()">Accedi</button>
+          <button type="submit" ion-button color="primary" style=" text-transform: none; font-weight: 200; width: 80%; padding: 1.5em 0;" (click)="login()">{{ 'loginSignup.signin' | translate }}  </button>
         </div>
 
-        <span style="color: #999; text-align: center; padding-top: 1em;">Non hai un account?<span style="color: #fff;" (click)="switchView()"> Registrati</span></span>
+        <span style="color: #999; text-align: center; padding-top: 1em;">{{ 'loginSignup.noAccountString' | translate }}<span style="color: #fff;" (click)="switchView()"> {{ 'loginSignup.signup' | translate }}</span></span>
 
         <!--<p *ngIf="errors" style="color: red; background-color: #f4f4f4; padding: 2em; border-radius: 5px;">{{ errors }}</p>-->
       </form>
@@ -67,17 +67,17 @@
         ></md-input>
         <md-input
           [(data)]="credentials.passwordConfirm"
-          [label]="'Conferma Password'"
+          [label]= "confirmText"
           [type]="'password'"
           [error]="errors"
           [iconName]="'ios-eye'"
         ></md-input>
 
         <div class="button-container" style="display:flex; justify-content: center">
-          <button type="submit" ion-button color="primary" style=" text-transform: none; font-weight: 200; width: 80%; padding: 1.5em 0;" (click)="signup()">Registrati</button>
+          <button type="submit" ion-button color="primary" style=" text-transform: none; font-weight: 200; width: 80%; padding: 1.5em 0;" (click)="signup()">{{ 'loginSignup.signup' | translate }}</button>
         </div>
 
-        <span style="color: #999; text-align: center; padding-top: 1em;">Sei già registrato?<span style="color: #fff;" (click)="switchView()"> Entra</span></span>
+        <span style="color: #999; text-align: center; padding-top: 1em;">{{ 'loginSignup.alreadyRegistered' | translate }}<span style="color: #fff;" (click)="switchView()"> {{ 'loginSignup.signin' | translate }}</span></span>
       </form>
 
       <!--<p *ngIf="errors" style="color: red; background-color: #f4f4f4; padding: 2em; border-radius: 5px;">{{ errors }}</p>-->

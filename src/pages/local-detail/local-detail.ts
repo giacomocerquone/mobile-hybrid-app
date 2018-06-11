@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Local } from '../../models/Local';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { TranslateService } from '@ngx-translate/core';
+import { take } from 'rxjs/operators';
 
 /**
  * Generated class for the LocalDetailPage page.
@@ -18,8 +21,14 @@ export class LocalDetailPage {
 
   public local: Local;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,    
+    private authService: AuthServiceProvider,
+    private translate: TranslateService,
+  ) {
     this.local = this.navParams.data;
+    this.translate.setDefaultLang('en');
   }
 
   public ionViewDidLoad() {

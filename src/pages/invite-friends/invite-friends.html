@@ -3,36 +3,36 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Invita {{ person.username | capitalize }}</h3></ion-title>
+    <ion-title><h3>{{ 'inviteFriends.invite' | translate }} {{ person.username | capitalize }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-item class="top">
     <ion-label>
-      <span>Invito a:<br><b>{{person.username | capitalize }}</b></span>
+      <span>{{ 'inviteFriends.inviteTo' | translate }}<br><b>{{person.username | capitalize }}</b></span>
       <img src="{{ person.avatar || '../assets/imgs/user.png' }}"/>
     </ion-label>
   </ion-item>
   <form (ngSubmit)="sendInvitation()">
     <ion-item>
-      <ion-label>Localiltà:</ion-label>
+      <ion-label>{{ 'inviteFriends.location' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="toSend.location" name="place"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label>Orario:</ion-label>
+        <ion-label>{{ 'inviteFriends.time' | translate }}</ion-label>
         <ion-datetime displayFormat="HH:mm" min={{minTime}} placeholder={{minTime}} [(ngModel)]="toSend.time" name="time"></ion-datetime>
       </ion-item>
     <ion-item>
-      <ion-label>Data:</ion-label>
+      <ion-label>{{ 'inviteFriends.date' | translate }}</ion-label>
       <ion-datetime displayFormat="DD/MM/YYYY" min={{minDate}} max="{{maxDate}}" placeholder={{minDate}} [(ngModel)]="toSend.date" name="date"></ion-datetime>
     </ion-item>
     <ion-item class="description">
-        <ion-label>Descrizione:</ion-label>
-        <ion-textarea item-content rows="4" placeholder="Inserisci la tua descrizione..." [(ngModel)]="toSend.description" name="description"></ion-textarea>
+        <ion-label>{{ 'inviteFriends.description' | translate }}</ion-label>
+        <ion-textarea item-content rows="4" placeholder="..." [(ngModel)]="toSend.description" name="description"></ion-textarea>
     </ion-item>
     <div class="sendButton">
-      <button ion-button type="submit" block>Invia</button>
+      <button ion-button type="submit" block>{{ 'inviteFriends.send' | translate }}</button>
     </div>
   </form>
 </ion-content>

@@ -7,6 +7,9 @@ import {
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { take } from 'rxjs/operators';
 
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { TranslateService } from '@ngx-translate/core';
+
 @IonicPage()
 @Component({
   selector: 'page-people-search',
@@ -28,7 +31,12 @@ export class PeopleSearchPage {
     public menuController: MenuController,
     private userService: UserServiceProvider,
     private navCtrl: NavController,
-    private toastCtrl: ToastController) {}
+    private toastCtrl: ToastController,
+    private authService: AuthServiceProvider,
+    private translate: TranslateService,
+  ) {
+    this.translate.setDefaultLang('en');
+  }
 
   public updateMaleSex() {
     if (this.toSearch.female) this.toSearch.female = false;

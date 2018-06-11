@@ -3,7 +3,7 @@
       <button ion-button menuToggle>
         <ion-icon name="ios-keypad"></ion-icon>
       </button>
-      <ion-title><h3>Invita i tuoi amici</h3></ion-title>
+      <ion-title><h3>{{ 'joinApp.inviteYourFriends' | translate }}</h3></ion-title>
     </ion-navbar>
   </ion-header>
 
@@ -16,14 +16,14 @@
       <ion-input type="text" placeholder="example@mail.com" [(ngModel)]="mailContent.address" name="address"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Titolo:</ion-label>
+      <ion-label>{{ 'joinApp.subject' | translate }}</ion-label>
       <ion-input type="text" [(ngModel)]="mailContent.title" name="title"></ion-input>
     </ion-item>
     <ion-item class="text">
       <ion-textarea item-content rows="10" [(ngModel)]="mailContent.text" name="text"></ion-textarea>
     </ion-item>
     <div class="sendButton">
-      <button ion-button type="submit" block>Invia mail</button>
+      <button ion-button type="submit" block>{{ 'joinApp.send' | translate }}</button>
     </div>
   </form>
 </ion-content>

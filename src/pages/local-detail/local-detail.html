@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="ios-keypad"></ion-icon>
     </button>
-    <ion-title><h3>Info sul locale: {{ local.name }}</h3></ion-title>
+    <ion-title><h3>{{ 'localDetail.infoAbout' | translate }} {{ local.name }}</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,16 +14,16 @@
   <header>
     <div class="left">
       <h2>{{ local.name }}</h2>
-      <p>Tipo di cucina: {{ local.cookingGenre }}</p>
-      <p>Rating: {{ local.rating }}</p>
+      <p>{{ 'localDetail.cuisineStyle' | translate }} {{ local.cookingGenre }}</p>
+      <p>{{ 'localDetail.rating' | translate }} {{ local.rating }}</p>
     </div>
     <div>
-      <h5>Prezzo medio</h5>
+      <h5>{{ 'localDetail.averagePrice' | translate }}</h5>
       <p>{{ local.price }}</p>
     </div>
   </header>
   <main>
-    <h2>Descrizione</h2>
+    <h2>{{ 'localDetail.description' | translate }}</h2>
     <p>
       {{ local.description }}
     </p>

@@ -7,6 +7,9 @@ import moment from 'moment';
 import { take } from 'rxjs/operators';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { TranslateService } from '@ngx-translate/core';
+
 @IonicPage()
 @Component({
   selector: 'page-profile',
@@ -40,7 +43,11 @@ export class ProfilePage {
     private userService: UserServiceProvider,
     private toastCtrl: ToastController,
     private camera: Camera,
-  ) {}
+    private authService: AuthServiceProvider,
+    private translate: TranslateService,
+  ) {
+    this.translate.setDefaultLang('en');
+  }
 
   public updateMaleSex() {
     if (this.toUpdate.female) this.toUpdate.female = false;
