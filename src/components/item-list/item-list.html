@@ -4,17 +4,17 @@
   </ion-avatar>
 
   <div *ngIf="isInvited === undefined">
-    <h2>{{ data.username || data.name }}</h2>
-    <p>{{ data.biography || data.description }}</p>
+    <h2>{{ data.username || data.name | capitalize }}</h2>
+    <p>{{ data.biography || data.description || 'Nessuna descrizione' | capitalize }}</p>
   </div>
 
   <div *ngIf="isInvited === false">
-    <h2>Invito a: {{ data.userReceivedId }}</h2>
+    <h2>Invito a: {{ data.userReceivedId | capitalize }} </h2>
     <p>{{ data.date }} , {{ data.time }}</p>
   </div>
 
   <div *ngIf="isInvited">
-    <h2>Invito da: {{ data.userId }}</h2>
+    <h2>Invito da: {{ data.userId | capitalize }} </h2>
     <p>{{ data.date }} , {{ data.time }}</p>
   </div>
 

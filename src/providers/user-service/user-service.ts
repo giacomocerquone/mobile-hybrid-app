@@ -23,7 +23,8 @@ export class UserServiceProvider {
   }
 
   public getPeople() {
-    return this.http.get<Person[]>('neaUsers');
+    const params = { where: { email: { neq: this.authService.getUserId() } } };
+    return this.http.get<Person[]>('neaUsers?filter=' + JSON.stringify(params));
   }
 
   public searchPeople(searchParams) {
@@ -31,12 +32,11 @@ export class UserServiceProvider {
     searchParams.sex = searchParams.male ? 'male' : (searchParams.female) ? 'female' : '';
     delete searchParams.male;
     delete searchParams.female;
-    Object.keys(searchParams).forEach(key => (searchParams[key] === '') && delete searchParams[key]);
+    Object.keys(searchParams)
+      .forEach(key => (searchParams[key] === '') && delete searchParams[key]);
 
     const searchParamsEnhanced = { where: searchParams };
     return this.http.get<Person[]>('neaUsers?filter=' + JSON.stringify(searchParamsEnhanced));
   }
-
-  public sendJoinInvite() {}
 
 }

@@ -14,12 +14,10 @@ export class AuthServiceProvider {
     localStorage.setItem('login-token', token);
     localStorage.setItem('login-token-ttl', ttl);
     localStorage.setItem('userId', userId);
-
     this.token = token;
     this.ttl = ttl;
-    this.userId = userId
-
-      return true
+    this.userId = userId;
+    return true;
   }
 
   public getToken() {
@@ -40,6 +38,9 @@ export class AuthServiceProvider {
 
   public logout() {
     localStorage.clear();
+    this.token = null;
+    this.ttl = null;
+    this.userId = null;
     return !this.isConnected();
   }
 

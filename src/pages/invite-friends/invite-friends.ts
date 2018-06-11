@@ -33,7 +33,7 @@ export class InviteFriendsPage {
   public toSend: Invite = {
     userId: this.authService.getUserId(),
     userReceivedId: this.person.email,
-    date: new Date(),
+    date: null,
     time: '',
     description: '',
     location: '',
@@ -58,8 +58,8 @@ export class InviteFriendsPage {
             'L\'invito è stato inviato.',
           );
           success.present();
-        },         (err) => {
-          console.log(err)
+          this.navCtrl.setRoot('PeopleListPage');
+        }, (err) => {
           const failure = this.toastFactory(
             'Ci sono stati errori nell\'invio del invito.',
           );

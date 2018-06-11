@@ -14,13 +14,18 @@
   </ion-searchbar>
 
   <ion-list>
-    <item-list
-      *ngFor="let invite of invitesList | filter: searchTerm"
-      [data]="invite"
-      [navigateTo]="'InviteDetailPage'"
-      [isInvited]="isInvited(invite)"
-    >
-    </item-list>
+    <div *ngIf="invites$ | async as invites; else loading">
+      <item-list
+        *ngFor="let invite of invites"
+        [data]="invite"
+        [navigateTo]="'InviteDetailPage'"
+        [isInvited]="isInvited(invite)"
+      >
+      </item-list>
+    </div>
+    <ng-template #loading>
+      <ion-spinner style="margin-top: 3em;"></ion-spinner>
+    </ng-template>
   </ion-list>
 
 </ion-content>

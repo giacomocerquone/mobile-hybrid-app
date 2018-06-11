@@ -16,6 +16,7 @@ export class ProfilePage {
   public loadingData: boolean = true;
   public toUpdate: Person = {
     userId: '',
+    username: '',
     name: '',
     surname: '',
     bornDate: null,
@@ -31,7 +32,6 @@ export class ProfilePage {
   };
 
   public minDate: string = moment().format('YYYY-MM-DD');
-  public maxDate: string = moment().add(90, 'days').format('YYYY-MM-DD');
 
   constructor(
     public navCtrl: NavController,
@@ -64,7 +64,7 @@ export class ProfilePage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
         const base64Image = 'data:image/jpeg;base64,' + imageData;
-      },    (err) => {
+      }, (err) => {
       console.log(err);
     });
   }

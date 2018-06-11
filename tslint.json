@@ -6,7 +6,8 @@
     "no-duplicate-variable": true,
     "no-unused-variable": true,
     "prefer-array-literal": false,
-    "no-submodule-imports": false
+    "no-submodule-imports": false,
+    "align": false
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"

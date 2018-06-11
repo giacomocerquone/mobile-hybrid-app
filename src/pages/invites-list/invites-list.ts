@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-import { invites } from '../../mock/invites';
 import { Invite } from '../../models/Invite';
+import { Observable } from 'rxjs/Observable';
+import { InviteServiceProvider } from '../../providers/invite-service/invite-service';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -10,13 +12,17 @@ import { Invite } from '../../models/Invite';
 })
 export class InvitesListPage {
 
-  public invitesList: Invite[] = invites;
+  public invites$: Observable<Invite[]> = this.inviteService.getInvites();
+
   public searchTerm: string = '';
-  public loggedUser: string = invites[0].userId; // TODO get it from authservice
+
+  constructor(
+    private inviteService: InviteServiceProvider,
+    private authService: AuthServiceProvider,
+  ) {}
 
   isInvited(invite) {
-    // Can be replaced with
-    return this.loggedUser === invite.userReceivedId;
+    return this.authService.getUserId() === invite.userReceivedId;
   }
 
 }

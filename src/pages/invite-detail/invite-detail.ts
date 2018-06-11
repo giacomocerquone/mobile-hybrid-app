@@ -7,7 +7,7 @@ import {
   NavController,
   NavParams,
  } from 'ionic-angular';
-import { invites } from '../../mock/invites';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -17,9 +17,13 @@ import { invites } from '../../mock/invites';
 export class InviteDetailPage {
 
   public inviteInfo: any;
-  public loggedUser: string = invites[0].userId; // TODO get it from authservice
+  public loggedUser: string = this.authService.getUserId();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private authService: AuthServiceProvider,
+  ) {
     this.inviteInfo = this.navParams.data;
   }
 

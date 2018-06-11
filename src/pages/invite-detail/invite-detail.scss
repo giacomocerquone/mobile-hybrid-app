@@ -23,9 +23,6 @@ page-invite-detail {
         display: flex;
         flex-direction: column
     }
-    .description ion-textarea {
-        overflow-x: scroll;
-    }
     .choiceButtons {
         display:flex;justify-content:space-around;margin-top:1em;
     }
