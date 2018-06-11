@@ -6,17 +6,17 @@ import { Person } from '../../models/Person';
 export class AuthServiceProvider {
   private token = null;
   private ttl = null;
-  private userId = null;
+  private username = null;
 
   constructor(public http: HttpClient) {}
 
-  public setUserInfo(token, ttl, userId) {
+  public setUserInfo(token, ttl, username) {
     localStorage.setItem('login-token', token);
     localStorage.setItem('login-token-ttl', ttl);
-    localStorage.setItem('userId', userId);
+    localStorage.setItem('username', username);
     this.token = token;
     this.ttl = ttl;
-    this.userId = userId;
+    this.username = username;
     return true;
   }
 
@@ -25,7 +25,7 @@ export class AuthServiceProvider {
   }
 
   public getUserId() {
-    return this.userId || (this.isConnected() && localStorage.getItem('userId'));
+    return this.username || (this.isConnected() && localStorage.getItem('username'));
   }
 
   public isConnected() {
@@ -33,14 +33,17 @@ export class AuthServiceProvider {
   }
 
   public login(credentials) {
-    return this.http.post<Person>('neaUsers/login', credentials);
+    return this.http.post<{ id: string, ttl: number, user: Person }>(
+      'neaUsers/login?include=user',
+      credentials,
+    );
   }
 
   public logout() {
     localStorage.clear();
     this.token = null;
     this.ttl = null;
-    this.userId = null;
+    this.username = null;
     return !this.isConnected();
   }
 

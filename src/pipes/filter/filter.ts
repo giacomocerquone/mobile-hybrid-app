@@ -9,7 +9,8 @@ export class FilterPipe implements PipeTransform {
   public transform(data: any, searchTerm) {
     return data.filter((el) => {
       if (this.isInvite(el)) {
-        return el.userId.toLowerCase().includes(searchTerm.toLowerCase());
+        // return el.userId.toLowerCase().includes(searchTerm.toLowerCase());
+        return el;
       }
       if (this.isPerson(el)) {
         return el.username.toLowerCase().includes(searchTerm.toLowerCase());

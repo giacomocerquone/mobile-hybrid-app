@@ -23,7 +23,7 @@ export class UserServiceProvider {
   }
 
   public getPeople() {
-    const params = { where: { email: { neq: this.authService.getUserId() } } };
+    const params = { where: { username: { neq: this.authService.getUserId() } } };
     return this.http.get<Person[]>('neaUsers?filter=' + JSON.stringify(params));
   }
 

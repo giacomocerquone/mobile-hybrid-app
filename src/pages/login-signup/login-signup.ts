@@ -51,7 +51,7 @@ export class LoginSignupPage {
     return this.authService.login(this.credentials)
       .subscribe(
         (data) => {
-          this.authService.setUserInfo(data.id, data.ttl, data.userId);
+          this.authService.setUserInfo(data.id, data.ttl, data.user.username);
           this.navCtrl.setRoot('PeopleListPage');
           this.menuController.enable(true, 'navigationDrawer');
         },

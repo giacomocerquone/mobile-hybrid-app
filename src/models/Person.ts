@@ -1,11 +1,7 @@
 export class Person {
 
-  public id?: string = ''; // token
-  public ttl?: number = 0;
-  public userId?: string = '';
-
-  public email?: string = '';
-  public username?: string = '';
+  public email: string = '';
+  public username: string = '';
   public name?: string = '';
   public surname?: string = '';
   public sex?: 'male' | 'female';

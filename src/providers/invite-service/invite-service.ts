@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { zip } from 'rxjs/observable/zip';
-import { map } from 'rxjs/operators';
-
 import { Invite } from '../../models/Invite';
 import { AuthServiceProvider } from '../auth-service/auth-service';
 
@@ -21,13 +18,13 @@ export class InviteServiceProvider {
     // This mess has to be done because of Loopback
     // not supporting multiple foreign keys, so we need two calls
     const userId = this.authService.getUserId();
-    const params = { where: { userReceivedId: userId }, include: 'users' };
-    const sentInvites$ = this.http.get<Invite[]>('neaUsers/' + userId + '/invites');
-    const receivedInvites$ = this.http.get<Invite[]>('Invites?filter=' + JSON.stringify(params));
-
-    return zip(sentInvites$, receivedInvites$).pipe(
-        map(([sent, received]) => [...sent, ...received]),
-      );
+    const params = {
+      where: {
+        or: [{ targetUser: userId }, { sourceUser: userId }],
+      },
+      include: ['sourceUser', 'targetUser'],
+    };
+    return this.http.get<Invite[]>('Invites?filter=' + JSON.stringify(params));
   }
 
 }

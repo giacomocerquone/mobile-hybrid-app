@@ -30,9 +30,9 @@ export class InviteFriendsPage {
   // TODO: fissare orario minimo tot minuti più avanti e controllare che non sia passato
 
   public person: Person = this.navParams.data;
-  public toSend: Invite = {
-    userId: this.authService.getUserId(),
-    userReceivedId: this.person.email,
+  public toSend: any = {
+    sourceUser: this.authService.getUserId(),
+    targetUser: this.person.email,
     date: null,
     time: '',
     description: '',
@@ -50,7 +50,7 @@ export class InviteFriendsPage {
 
   public sendInvitation() {
     console.log(this.toSend);
-    if (this.toSend.userReceivedId) {
+    if (this.toSend.targetUser) {
       this.inviteService.sendInvite(this.toSend)
         .pipe(take(1))
         .subscribe(() => {

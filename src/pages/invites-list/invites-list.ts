@@ -22,7 +22,7 @@ export class InvitesListPage {
   ) {}
 
   isInvited(invite) {
-    return this.authService.getUserId() === invite.userReceivedId;
+    return this.authService.getUserId() === invite.targetUser.username;
   }
 
 }
