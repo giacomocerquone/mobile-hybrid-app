@@ -29,4 +29,23 @@ page-profile {
   .singleSex ion-icon {
     font-size:2em;
   }
+  .selectLanguage {
+    display: flex;
+    flex-direction: row;
+    height:3.29em;
+  }
+  .singleLanguage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    margin: 0 0 0 2.5%;
+  }
+  .englishLanguage {
+    margin: 0 0 0 15%;
+  }
+  .singleLanguage img {
+    height:2em;
+  }
 }

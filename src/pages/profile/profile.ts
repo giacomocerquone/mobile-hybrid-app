@@ -17,6 +17,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ProfilePage {
   public loadingData: boolean = true;
+  public italian: boolean;
+  public english: boolean;
   public toUpdate: Person = {
     username: '',
     email: '',
@@ -54,6 +56,15 @@ export class ProfilePage {
   }
   public updateFemaleSex() {
     if (this.toUpdate.male) this.toUpdate.male = false;
+  }
+
+  public setItalian() {
+    this.translate.use('it')
+    if(this.english) this.english = false;  
+  }
+  public setEnglish() {
+    this.translate.use('en')
+    if(this.italian) this.italian = false;  
   }
 
   options: CameraOptions = {

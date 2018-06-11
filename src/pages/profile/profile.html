@@ -52,14 +52,14 @@
       <ion-textarea rows="4" [(ngModel)]="toUpdate.interests" name="interests"></ion-textarea>
     </ion-item>
 
-    <div class="selectSex">
-      <div class="singleSex">
-        <ion-checkbox [(ngModel)]="toUpdate.male" (click)="updateMaleSex()" name="maleSex"></ion-checkbox>
-        <ion-icon ios="ios-male" md="md-male"></ion-icon>
+    <div class="selectLanguage">
+      <div class="singleLanguage">
+        <ion-checkbox [(ngModel)]="italian" (click)="setItalian()" name="italian"></ion-checkbox>
+        <img src="https://cdn.countryflags.com/thumbs/italy/flag-button-round-250.png"/>
       </div>
-      <div class="singleSex femaleSex">
-        <ion-checkbox [(ngModel)]="toUpdate.female" (click)="updateFemaleSex()" name="femaleSex"></ion-checkbox>
-        <ion-icon ios="ios-female" md="md-female"></ion-icon>
+      <div class="singleLanguage englishLanguage">
+        <ion-checkbox [(ngModel)]="english" (click)="setEnglish()" name="english"></ion-checkbox>
+        <img src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-button-round-250.png"/>
       </div>
     </div>
 

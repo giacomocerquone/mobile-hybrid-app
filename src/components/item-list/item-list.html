@@ -9,12 +9,12 @@
   </div>
 
   <div *ngIf="isInvited === false">
-    <h2>{{ 'itemList.inviteTo' | translate }} {{ data.targetUser.username | capitalize }} </h2>
+    <h2><!--{{ 'itemList.inviteTo' | translate }}-->Invite to: {{ data.targetUser.username | capitalize }} </h2>
     <p>{{ data.date }} , {{ data.time }}</p>
   </div>
 
   <div *ngIf="isInvited">
-    <h2>{{ 'itemList.inviteFrom' | translate }} {{ data.sourceUser.username | capitalize }} </h2>
+    <h2><!--{{ 'itemList.inviteFrom' | translate }}-->Invite from: {{ data.sourceUser.username | capitalize }} </h2>
     <p>{{ data.date }} , {{ data.time }}</p>
   </div>
 
@@ -29,17 +29,17 @@
     *ngIf="isInvited && data.status === 'pending'"
     item-end
     style="background-color: #33A1DE; color: #fff; padding: .5em; display: block; border-radius: 5px; font-size: .8em;"
-  >{{ 'itemList.answer' | translate }}</p>
+  ><!--{{ 'itemList.answer' | translate }}-->Answer</p>
   <p
     *ngIf="isInvited && data.status === 'accepted'"
     item-end
     style="background-color: #008000; color: #fff; padding: .5em; display: block; border-radius: 5px; font-size: .8em;"
-  >{{ 'itemList.youAccepted' | translate }}</p>
+  ><!--{{ 'itemList.youAccepted' | translate }}-->Accepted</p>
   <p
     *ngIf="isInvited && data.status === 'rejected'"
     item-end
     style="background-color: #FF1111; color: #fff; padding: .5em; display: block; border-radius: 5px; font-size: .8em;"
-  >{{ 'itemList.youRefused' | translate }}</p>
+  ><!--{{ 'itemList.youRefused' | translate }}-->Refused</p>
 
   <button ion-button clear item-end>
     <ion-icon style="font-size: 2em;" name="ios-arrow-forward-outline"></ion-icon>
