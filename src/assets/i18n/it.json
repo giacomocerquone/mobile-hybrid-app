@@ -1,6 +1,97 @@
-{
+{ 
+  "app": {
+    
+  },
   "loginSignup": {
-    "noAccountString": "Dont you have an account?",
-    "signup": "Sign Up"
+    "noAccountString": "Non hai un account?",
+    "signup": "Registrati",
+    "signin": "Entra",
+    "confirm": "Conferma password",
+    "alreadyRegistered": "Sei già registrato?"
+  },
+  "inviteDetail": {
+    "inviteFrom": "Invito da: ",
+    "inviteTo": "Invito a: ",
+    "location":"Posto:",
+    "time":"Ora:",
+    "date":"Data:",
+    "description":"Inserisci una descrizione quì...",
+    "status":"Status: "
+  },
+  "inviteFriends": {
+    "invite":"Invita",
+    "inviteTo":"Invito a:",
+    "location":"Posto:",
+    "time":"Ora:",
+    "date":"Data:",
+    "description":"Descrizione: ",
+    "send":"Invia"
+  },
+  "invitesList": {
+    "yourInvites":"I tuoi inviti"
+  },
+  "joinApp": {
+    "subject":"Oggetto:",
+    "send":"Invia",
+    "inviteYourFriends":"Invita i tuoi amici"
+  },
+  "localDetail": {
+    "infoAbout":"Informazioni del locale:",
+    "cuisineStyle":"Tipo di cucina:",
+    "rating":"Rating",
+    "averagePrice":"Prezzo medio:",
+    "description":"Descrizione:"
+  },
+  "localsList": {
+    "title":"Lista Locali"
+  },
+  "peopleList": {
+    "title":"Lista Persone",
+    "advancedSearch":"Ricerca avanzata"
+  },
+  "peopleListResult": {
+    "results":"Risultati"
+  },
+  "peopleSearch": {
+    "title":"Ricerca Avanzata",
+    "name":"Nome:",
+    "sex":"Sesso:",
+    "work":"Lavoro:",
+    "favFood":"Cibo preferito:",
+    "age":"età:",
+    "interests":"Interessi:", 
+    "searchBtn":"Cerca"
+  },
+  "personDetail": {
+    "title":"Profilo di: ",
+    "name":"Nome:",
+    "surname":"Cognome",
+    "description":"Descrizione:",
+    "bornDate":"Data di nascita:",
+    "sex":"Sesso:",
+    "livesIn":"Vive a:",
+    "favFood":"Cibo preferito:",
+    "interests":"Interessi:",
+    "inviteBtn":"Invia"
+  },
+  "profile": {
+    "title":"Profilo",
+    "changeImage":"Cambia Immagine",
+    "username":"Username:",
+    "name":"Nome:",
+    "surname":"Cognome",
+    "bornDate":"Data di nascita:",
+    "sex":"Sesso:",
+    "liveIn":"Vive a:",
+    "favFood":"Cibo preferito:",
+    "interests":"Interessi",
+    "modifyBtn":"Modifica profilo"
+  },
+  "itemList": {
+    "inviteTo":"Invito a:",
+    "inviteFrom":"Invito da:",
+    "answer":"Rispondi",
+    "youAccepted":"Accettto",
+    "youRefused":"Rifiutato"
   }
 }

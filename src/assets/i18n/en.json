@@ -38,9 +38,9 @@
   "localDetail": {
     "infoAbout":"Info about:",
     "cuisineStyle":"Cuisine style:",
-    "rating":"rating",
-    "averagePrice":"averagePrice",
-    "description":"description"
+    "rating":"Rating",
+    "averagePrice":"Average price:",
+    "description":"Description:"
   },
   "localsList": {
     "title":"Locals List"
@@ -91,7 +91,7 @@
     "inviteTo":"Invite to:",
     "inviteFrom":"Invite from:",
     "answer":"Answer",
-    "youAccepted":"You accepted",
-    "youRefused":"You refused"
+    "youAccepted":"Accepted",
+    "youRefused":"Refused"
   }
 }
