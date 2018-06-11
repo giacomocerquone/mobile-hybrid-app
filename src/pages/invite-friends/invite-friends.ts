@@ -32,7 +32,7 @@ export class InviteFriendsPage {
   public person: Person = this.navParams.data;
   public toSend: any = {
     sourceUser: this.authService.getUserId(),
-    targetUser: this.person.email,
+    targetUser: this.person.username,
     date: null,
     time: '',
     description: '',
