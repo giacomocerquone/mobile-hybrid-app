@@ -6,7 +6,6 @@ import {
 } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { take } from 'rxjs/operators';
-import { Person } from '../../models/Person';
 
 @IonicPage()
 @Component({
@@ -15,7 +14,7 @@ import { Person } from '../../models/Person';
 })
 export class PeopleSearchPage {
 
-  public toSearch: Person = {
+  public toSearch: any = {
     name: '',
     male: false,
     female: false,

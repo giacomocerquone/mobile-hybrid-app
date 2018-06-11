@@ -52,6 +52,18 @@
       <ion-textarea rows="4" [(ngModel)]="toUpdate.interests" name="interests"></ion-textarea>
     </ion-item>
 
+    <div class="selectSex">
+      <div class="singleSex">
+        <ion-checkbox [(ngModel)]="toUpdate.male" (click)="updateMaleSex()" name="maleSex"></ion-checkbox>
+        <ion-icon ios="ios-male" md="md-male"></ion-icon>
+      </div>
+      <div class="singleSex femaleSex">
+        <ion-checkbox [(ngModel)]="toUpdate.female" (click)="updateFemaleSex()" name="femaleSex"></ion-checkbox>
+        <ion-icon ios="ios-female" md="md-female"></ion-icon>
+      </div>
+    </div>
+
+
     <ion-spinner *ngIf="loadingData" style="display: block; margin: 1em auto; width: 3em;"></ion-spinner>
     <button ion-button *ngIf="!loadingData" type="submit" class="sendButton" block>Modifica Profilo</button>
   </form>

@@ -1,38 +1,86 @@
 <ion-content style="padding: 2em;">
   <div class="background-wrapper">
 
-    <div style="display:flex; flex-direction: row; align-items: center;">
-      <h2 style="margin:auto;">NeverEatAlone</h2>
+    <div style="display:flex; flex-direction: row; justify-content: center;">
+      <!--<h2 style="margin:auto;">NeverEatAlone</h2>-->
+      <div style="width: 10em; border-radius: 50%; background-color: rgba(255,255,255,.5); padding: 1em;">
+        <img src="../../assets/imgs/logo2.png" style="align-self: center" />
+      </div>
     </div>
 
-    <div *ngIf="viewLogin" style="display: flex; flex-direction: column; width:90%; margin: auto;">
+    <div *ngIf="viewLogin" style="display: flex; flex-direction: column; width: 90%; margin: auto auto 0 auto;">
 
-      <md-input [(data)]="credentials.email" [label]="'Email'" [type]="'text'"></md-input>
-      <md-input [(data)]="credentials.password" [label]="'Password'" [type]="'password'"></md-input>
+      <form style="display: flex; flex-direction: column; justify-content: center">
 
-      <div class="button-container" style="display:flex; flex-direction: row; justify-content: center">
-        <button ion-button color="secondary" (click)="login()">Login</button>
-        <button ion-button (click)="switchView()">Registrati</button>
-      </div>
+        <h3>Never Eat Alone</h3>
+        <md-input
+          [(data)]="credentials.email"
+          [label]="'Email'"
+          [type]="'text'"
+          [error]="errors"
+          [iconName]="'ios-at'"
+        ></md-input>
+        <md-input
+          [(data)]="credentials.password"
+          [label]="'Password'"
+          [type]="'password'"
+          [error]="errors"
+          [iconName]="'ios-eye'"
+        ></md-input>
 
-      <p *ngIf="errors" style="color: red; background-color: #f4f4f4; padding: 2em; border-radius: 5px;">{{ errors }}</p>
+        <div class="button-container" style="display:flex; justify-content: center">
+          <button type="submit" ion-button color="primary" style=" text-transform: none; font-weight: 200; width: 80%; padding: 1.5em 0;" (click)="login()">Accedi</button>
+        </div>
+
+        <span style="color: #999; text-align: center; padding-top: 1em;">Non hai un account?<span style="color: #fff;" (click)="switchView()"> Registrati</span></span>
+
+        <!--<p *ngIf="errors" style="color: red; background-color: #f4f4f4; padding: 2em; border-radius: 5px;">{{ errors }}</p>-->
+      </form>
 
     </div>
 
-    <div *ngIf="!viewLogin" style="display: flex; flex-direction: column; width:90%; margin: auto;">
+    <div *ngIf="!viewLogin" style="display: flex; flex-direction: column; width: 90%; margin: auto auto 0 auto;">
 
-      <md-input [(data)]="credentials.email" [label]="'Email'" [type]="'text'"></md-input>
-      <md-input [(data)]="credentials.username" [label]="'Username'" [type]="'text'"></md-input>
-      <md-input [(data)]="credentials.password" [label]="'Password'" [type]="'password'"></md-input>
-      <md-input [(data)]="credentials.passwordConfirm" [label]="'Conferma Password'" [type]="'password'"></md-input>
+      <form style="display: flex; flex-direction: column; justify-content: center">
+        <h3>Never Eat Alone</h3>
 
-      <div class="button-container" style="display:flex; flex-direction: row; justify-content: center">
-        <button ion-button color="secondary" (click)="signup()">Registrati</button>
-        <button ion-button (click)="switchView()">Login</button>
-      </div>
+        <md-input
+          [(data)]="credentials.email"
+          [label]="'Email'"
+          [type]="'text'"
+          [error]="errors"
+          [iconName]="'ios-at'"
+        ></md-input>
+        <md-input
+          [(data)]="credentials.username"
+          [label]="'Username'"
+          [type]="'text'"
+          [error]="errors"
+          [iconName]="'ios-contact'"
+        ></md-input>
+        <md-input
+          [(data)]="credentials.password"
+          [label]="'Password'"
+          [type]="'password'"
+          [error]="errors"
+          [iconName]="'ios-eye'"
+        ></md-input>
+        <md-input
+          [(data)]="credentials.passwordConfirm"
+          [label]="'Conferma Password'"
+          [type]="'password'"
+          [error]="errors"
+          [iconName]="'ios-eye'"
+        ></md-input>
 
-      <p *ngIf="errors" style="color: red; background-color: #f4f4f4; padding: 2em; border-radius: 5px;">{{ errors }}</p>
+        <div class="button-container" style="display:flex; justify-content: center">
+          <button type="submit" ion-button color="primary" style=" text-transform: none; font-weight: 200; width: 80%; padding: 1.5em 0;" (click)="signup()">Registrati</button>
+        </div>
 
+        <span style="color: #999; text-align: center; padding-top: 1em;">Sei già registrato?<span style="color: #fff;" (click)="switchView()"> Entra</span></span>
+      </form>
+
+      <!--<p *ngIf="errors" style="color: red; background-color: #f4f4f4; padding: 2em; border-radius: 5px;">{{ errors }}</p>-->
     </div>
   </div>
 </ion-content>

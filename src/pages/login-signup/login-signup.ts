@@ -8,6 +8,7 @@ import {
 } from 'ionic-angular';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -33,8 +34,10 @@ export class LoginSignupPage {
     private http: HttpClient,
     private authService: AuthServiceProvider,
     private alertCtrl: AlertController,
+    private translate: TranslateService,
   ) {
     this.unableMenu();
+    this.translate.setDefaultLang('en');
   }
 
   public unableMenu() {
@@ -42,6 +45,7 @@ export class LoginSignupPage {
   }
 
   public switchView() {
+    this.errors = '';
     this.viewLogin = !this.viewLogin;
   }
 
@@ -51,6 +55,7 @@ export class LoginSignupPage {
     return this.authService.login(this.credentials)
       .subscribe(
         (data) => {
+          this.translate.use(data.user.lang || 'en');
           this.authService.setUserInfo(data.id, data.ttl, data.user.username);
           this.navCtrl.setRoot('PeopleListPage');
           this.menuController.enable(true, 'navigationDrawer');

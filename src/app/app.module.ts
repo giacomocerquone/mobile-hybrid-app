@@ -9,7 +9,6 @@ import { Camera } from '@ionic-native/camera';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 import { ApiInterceptorProvider } from '../providers/api-interceptor/api-interceptor';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { InviteServiceProvider } from '../providers/invite-service/invite-service';
@@ -59,5 +58,5 @@ import { MyApp } from './app.component';
 export class AppModule {}
 
 function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
 }

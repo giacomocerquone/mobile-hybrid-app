@@ -1,6 +1,15 @@
-<div class="group">
-  <input type="{{ type }}" [ngModel]="data" (ngModelChange)="change($event)" required>
+<div class="group" [ngClass]="{'shake-ctrl': !!error}">
+  <input
+    type="{{ type }}"
+    [ngModel]="data"
+    (ngModelChange)="change($event)"
+    required
+  >
   <span class="highlight"></span>
   <span class="bar"></span>
-  <label>{{ label }}</label>
+  <label>
+    <ion-icon style="font-size: 1.8em;" name="{{ iconName }}"></ion-icon>
+    {{ label }}
+  </label>
 </div>
+

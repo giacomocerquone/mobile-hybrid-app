@@ -30,6 +30,13 @@ md-input {
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  ion-icon {
+    margin-right: .5em;
   }
 
   /* active state */
@@ -99,4 +106,29 @@ md-input {
       from { background:#5264AE; }
       to 	{ width:0; background:transparent; }
     }*/
+
+  .shake-ctrl {
+    animation: shake 1.5s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    border-bottom: 1px solid #FF6561 !important;
+  }
+
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
 }

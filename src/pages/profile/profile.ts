@@ -15,8 +15,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class ProfilePage {
   public loadingData: boolean = true;
   public toUpdate: Person = {
-    userId: '',
     username: '',
+    email: '',
     name: '',
     surname: '',
     bornDate: null,
@@ -30,6 +30,7 @@ export class ProfilePage {
     job: '',
     biography: '',
   };
+  public lang: boolean = false;
 
   public minDate: string = moment().format('YYYY-MM-DD');
 

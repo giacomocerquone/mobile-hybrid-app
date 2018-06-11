@@ -12,8 +12,8 @@ export class Person {
   public favFood?: string = '';
   public interests?: string = '';
   public job?: string = '';
-  // AngularOnly
-  public male?: boolean;
-  public female?: boolean;
+  public lang?: 'it' | 'en';
+  public male?: boolean = null;
+  public female?: boolean = null;
 
 }
