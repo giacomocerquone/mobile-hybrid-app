@@ -15,10 +15,10 @@
     <div class="left">
       <h2>{{ local.name }}</h2>
       <p>{{ 'localDetail.cuisineStyle' | translate }} {{ local.cookingGenre }}</p>
-      <p>{{ 'localDetail.rating' | translate }} {{ local.rating }}</p>
+      <p>{{ 'localDetail.rating' | translate }} {{ local.rating }}/5</p>
     </div>
     <div>
-      <h5>{{ 'localDetail.averagePrice' | translate }}</h5>
+      <h5>{{ 'localDetail.averagePrice' | translate }}/5</h5>
       <p>{{ local.price }}</p>
     </div>
   </header>
@@ -35,7 +35,7 @@
       <ion-icon name="md-mail-open"></ion-icon>
     </div>
     <div class="info">
-      <p>{{ local.location }}</p>
+      <p>{{ local.address }}</p>
       <p>{{ local.phoneNumber }}</p>
       <p>{{ local.mail }}</p>
     </div>
