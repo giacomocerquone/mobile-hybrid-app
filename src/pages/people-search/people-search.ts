@@ -18,6 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class PeopleSearchPage {
 
   public toSearch: any = {
+    username: '',
     name: '',
     male: false,
     female: false,

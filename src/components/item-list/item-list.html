@@ -1,6 +1,12 @@
 <button ion-item [navPush]="navigateTo" [navParams]="data" >
-  <ion-avatar item-start>
+  <ion-avatar item-start *ngIf="isInvited === undefined">
     <img src="{{ data.avatar || '../../assets/imgs/user.png' }}" >
+  </ion-avatar>
+  <ion-avatar item-start *ngIf="isInvited === false">
+    <img src="{{ data.targetUser.avatar || '../../assets/imgs/user.png' }}" >
+  </ion-avatar>
+  <ion-avatar item-start *ngIf="isInvited">
+    <img src="{{ data.sourceUser.avatar || '../../assets/imgs/user.png' }}" >
   </ion-avatar>
 
   <div *ngIf="isInvited === undefined">

@@ -33,9 +33,10 @@ export class UserServiceProvider {
     delete searchParams.male;
     delete searchParams.female;
     Object.keys(searchParams)
-      .forEach(key => (searchParams[key] === '') && delete searchParams[key]);
+      .forEach(key => (!searchParams[key]) && delete searchParams[key]);
 
     const searchParamsEnhanced = { where: searchParams };
+    console.log(searchParams)
     return this.http.get<Person[]>('neaUsers?filter=' + JSON.stringify(searchParamsEnhanced));
   }
 
