@@ -25,7 +25,7 @@
     "time":"Time:",
     "date":"Date:",
     "description":"Description: ",
-    "send":"Send"
+    "send":"Invite"
   },
   "invitesList": {
     "yourInvites":"Your invites"
@@ -38,7 +38,7 @@
   "localDetail": {
     "infoAbout":"Info about:",
     "cuisineStyle":"Cuisine style:",
-    "rating":"Rating",
+    "rating":"Rating:",
     "averagePrice":"Average price:",
     "description":"Description:"
   },
@@ -65,7 +65,7 @@
   "personDetail": {
     "title":"Profile of: ",
     "name":"Name:",
-    "surname":"Surname",
+    "surname":"Surname:",
     "description":"Description:",
     "bornDate":"Bord date:",
     "sex":"Sex:",
@@ -79,12 +79,12 @@
     "changeImage":"Change Image",
     "username":"Username:",
     "name":"Name:",
-    "surname":"Surname",
+    "surname":"Surname:",
     "bornDate":"Born date:",
     "sex":"Sex:",
     "liveIn":"Live in:",
     "favFood":"Favorite food:",
-    "interests":"Interests",
+    "interests":"Interests:",
     "modifyBtn":"Modify Profile"
   },
   "itemList": {

@@ -25,7 +25,7 @@
     "time":"Ora:",
     "date":"Data:",
     "description":"Descrizione: ",
-    "send":"Invia"
+    "send":"Invita"
   },
   "invitesList": {
     "yourInvites":"I tuoi inviti"
@@ -38,7 +38,7 @@
   "localDetail": {
     "infoAbout":"Informazioni del locale:",
     "cuisineStyle":"Tipo di cucina:",
-    "rating":"Rating",
+    "rating":"Rating:",
     "averagePrice":"Prezzo medio:",
     "description":"Descrizione:"
   },
@@ -65,7 +65,7 @@
   "personDetail": {
     "title":"Profilo di: ",
     "name":"Nome:",
-    "surname":"Cognome",
+    "surname":"Cognome:",
     "description":"Descrizione:",
     "bornDate":"Data di nascita:",
     "sex":"Sesso:",
@@ -79,12 +79,12 @@
     "changeImage":"Cambia Immagine",
     "username":"Username:",
     "name":"Nome:",
-    "surname":"Cognome",
+    "surname":"Cognome:",
     "bornDate":"Data di nascita:",
     "sex":"Sesso:",
     "liveIn":"Vive a:",
     "favFood":"Cibo preferito:",
-    "interests":"Interessi",
+    "interests":"Interessi:",
     "modifyBtn":"Modifica profilo"
   },
   "itemList": {
